@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviator Simulador</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      padding-top: 20px;
+    }
+
+    #gameCanvas {
+      background-color: #000;
+      border: 2px solid #444;
+      margin: 20px;
+    }
+
+    #multiplier {
+      font-size: 3em;
+      color: lime;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 1.1em;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #cashoutBtn { background-color: red; color: white; }
+    #retryBtn { background-color: #00ffcc; color: black; display: none; }
+    #betBtn { background-color: #ffaa00; color: #000; }
+
+    #status { margin-top: 10px; font-size: 1.2em; }
+
+    #history, #ranking {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 600px;
+      background: #222;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    #history h3, #ranking h3 {
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    li {
+      padding: 5px;
+      border-bottom: 1px solid #333;
+    }
+
+    #controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #betInput {
+      width: 100px;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <audio id="planeSound" autoplay loop>
+    <source src="https://www.soundjay.com/transport/sounds/airplane-flying-01.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="multiplier">1.00x</div>
+  <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+  <div id="controls">
+    <input type="number" id="betInput" placeholder="Aposta R$" min="1" value="10">
+    <button class="btn" id="betBtn" onclick="startGame()">Apostar</button>
+    <button class="btn" id="cashoutBtn" onclick="cashOut()" disabled>Sair</button>
+    <button class="btn" id="retryBtn" onclick="restart()">Jogar Novamente</button>
+  </div>
+
+  <div id="status"></div>
+
+  <div id="history">
+    <h3>Histórico</h3>
+    <ul id="historyList"></ul>
+  </div>
+
+  <div id="ranking">
+    <h3>Ranking</h3>
+    <ul id="rankingList"></ul>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const multiplierText = document.getElementById('multiplier');
+    const statusText = document.getElementById('status');
+    const cashoutBtn = document.getElementById('cashoutBtn');
+    const retryBtn = document.getElementById('retryBtn');
+    const betInput = document.getElementById('betInput');
+    const historyList = document.getElementById('historyList');
+    const rankingList = document.getElementById('rankingList');
+
+    let multiplier = 1;
+    let isRunning = false;
+    let hasCashedOut = false;
+    let startTime = null;
+    let crashPoint = 0;
+    let points = [];
+    let airplaneImg = new Image();
+    airplaneImg.src = "https://cdn-icons-png.flaticon.com/512/69/69946.png";
+    let currentBet = 0;
+    let playerScore = 1000; // saldo inicial
+    let waveOffset = 0;
+
+    function getRandomCrash() {
+      return Math.random() * (15 - 1.5) + 1.5;
+    }
+
+    function draw() {
+      if (!startTime) startTime = Date.now();
+      const elapsed = (Date.now() - startTime) / 1000;
+
+      if (isRunning && !hasCashedOut) {
+        multiplier = (1 + Math.pow(elapsed, 1.8) / 10).toFixed(2);
+        multiplierText.textContent = multiplier + 'x';
+
+        if (parseFloat(multiplier) >= crashPoint) {
+          isRunning = false;
+          cashoutBtn.disabled = true;
+          multiplierText.textContent = '💥 ' + multiplier + 'x';
+          statusText.textContent = '🚫 Perdeu tudo! ( VOOU PARA LONGE )';
+          playerScore -= currentBet;
+          addToHistory(`❌ Perdeu R$${currentBet.toFixed(2)} em ${multiplier}x`);
+          updateRanking();
+          retryBtn.style.display = 'inline-block';
+          return;
+        } else {
+          requestAnimationFrame(draw);
+        }
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height);
+      points = [];
+      for (let i = 0; i < canvas.width; i++) {
+        let wave = Math.sin((i + waveOffset) * 0.02) * 10;
+        let y = canvas.height - (i * multiplier * 0.01) + wave;
+        points.push({ x: i, y });
+        ctx.lineTo(i, y);
+      }
+      ctx.strokeStyle = '#00ff00';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      const airplane = points[points.length - 1];
+      if (airplane) {
+        ctx.drawImage(airplaneImg, airplane.x - 25, airplane.y - 25, 50, 50);
+      }
+      waveOffset += 2;
+    }
+
+    function startGame() {
+      currentBet = parseFloat(betInput.value);
+      if (!currentBet || currentBet <= 0 || currentBet > playerScore) {
+        alert('Insira um valor de aposta válido (até seu saldo).');
+        return;
+      }
+      multiplier = 1;
+      isRunning = true;
+      hasCashedOut = false;
+      startTime = null;
+      points = [];
+      waveOffset = 0;
+      crashPoint = getRandomCrash();
+      multiplierText.textContent = '1.00x';
+      statusText.textContent = '';
+      retryBtn.style.display = 'none';
+      cashoutBtn.disabled = false;
+      draw();
+    }
+
+    function cashOut() {
+      if (!hasCashedOut && isRunning) {
+        hasCashedOut = true;
+        isRunning = false;
+        cashoutBtn.disabled = true;
+        const ganho = (currentBet * multiplier).toFixed(2);
+        playerScore += parseFloat(ganho) - currentBet; // lucro líquido
+        multiplierText.textContent = '✅ ' + multiplier + 'x';
+        statusText.textContent = `💰 Ganhou R$${ganho} (${multiplier}x)`;
+        addToHistory(`✅ Ganhou R$${ganho} em ${multiplier}x`);
+        updateRanking();
+        retryBtn.style.display = 'inline-block';
+      }
+    }
+
+    function restart() {
+      betInput.value = 10;
+      multiplierText.textContent = '1.00x';
+      statusText.textContent = '';
+      retryBtn.style.display = 'none';
+      cashoutBtn.disabled = true;
+    }
+
+    function addToHistory(entry) {
+      const li = document.createElement('li');
+      li.textContent = entry;
+      historyList.insertBefore(li, historyList.firstChild);
+    }
+
+    function updateRanking() {
+      rankingList.innerHTML = `<li>Seu saldo: R$${playerScore.toFixed(2)}</li>`;
+    }
+
+    updateRanking();
+  </script>
+</body>
+</html>

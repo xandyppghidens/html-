@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Solar Interativo em 3D</title>
+    <style>
+        body {
+            background: #000016;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ffd700;
+        }
+        p.description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+        }
+        #solar-system {
+            width: 100vw;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+        }
+        .info {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: rgba(20,20,40,0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .planet {
+            margin-bottom: 20px;
+        }
+        .planet h2 {
+            color: #00ffff;
+        }
+        canvas {
+            background: #000;
+            display: block;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+        #black-hole-info {
+            background: rgba(0,0,0,0.6);
+            margin: 30px auto;
+            max-width: 900px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #black-hole-canvas {
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        body {
+            background: #222;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bt1 {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.bt1:hover {
+    background: linear-gradient(135deg, #00bfff, #1e90ff);
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.bt1:active {
+    transform: scale(0.97);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Solar Interativo em 3D</h1>
+        <p class="description">Explore os planetas do nosso sistema solar com visualização em 3D, movimento e informações curiosas! Ao final, conheça também os misteriosos buracos negros.</p>
+    </header>
+    <section id="solar-system">
+        <canvas id="solarCanvas" width="1000" height="500"></canvas>
+    </section>
+    <section class="info">
+        <div class="planet"><h2>Mercúrio</h2><p>O menor e mais próximo do Sol, sem atmosfera significativa. Dias escaldantes e noites congelantes.</p></div>
+        <div class="planet"><h2>Vênus</h2><p>Temperaturas altíssimas devido ao efeito estufa. Atmosfera densa e misteriosa.</p></div>
+        <div class="planet"><h2>Terra</h2><p>Nosso lar azul, com vida abundante, água e atmosfera rica em oxigênio.</p></div>
+        <div class="planet"><h2>Marte</h2><p>O planeta vermelho. Possível candidato a futuras colônias humanas.</p></div>
+        <div class="planet"><h2>Júpiter</h2><p>O gigante gasoso. Possui mais de 70 luas e a famosa Grande Mancha Vermelha.</p></div>
+        <div class="planet"><h2>Saturno</h2><p>Famoso por seus belos anéis compostos de gelo e poeira.</p></div>
+        <div class="planet"><h2>Urano</h2><p>Gira de lado! Possui um tom azul claro devido ao metano em sua atmosfera.</p></div>
+        <div class="planet"><h2>Netuno</h2><p>Ventos mais rápidos do sistema solar. Azul profundo e misterioso.</p></div>
+    </section>
+
+    <section id="black-hole-info">
+        <h2>Buracos Negros</h2>
+        <p>Buracos negros são regiões do espaço onde a gravidade é tão forte que nem a luz consegue escapar. Eles se formam quando estrelas massivas colapsam ao fim de suas vidas. O horizonte de eventos é o limite onde nada mais retorna. Ao interagir com buracos negros, matéria e luz são distorcidas de formas extremas.</p>
+        <canvas id="blackHoleCanvas" width="300" height="300"></canvas>
+    </section>
+
+    <footer>
+        Desenvolvido por Alexandre Vilela de Oliveira Junior usando HTML, CSS e JavaScript
+    </footer>
+
+    <script>
+        // Planetas
+        const planets = [
+            { name: "Mercúrio", color: "#b1b1b1", radius: 4, distance: 50, speed: 0.04 },
+            { name: "Vênus", color: "#e6c07b", radius: 7, distance: 80, speed: 0.03 },
+            { name: "Terra", color: "#3a9efd", radius: 8, distance: 110, speed: 0.025 },
+            { name: "Marte", color: "#c1440e", radius: 6, distance: 140, speed: 0.02 },
+            { name: "Júpiter", color: "#e3c07b", radius: 16, distance: 180, speed: 0.013 },
+            { name: "Saturno", color: "#e8d8a8", radius: 14, distance: 230, speed: 0.01 },
+            { name: "Urano", color: "#7de2fc", radius: 10, distance: 270, speed: 0.007 },
+            { name: "Netuno", color: "#4062bb", radius: 10, distance: 310, speed: 0.005 }
+        ];
+
+        const canvas = document.getElementById('solarCanvas');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        let angle = 0;
+
+        function drawSolarSystem() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 30, 0, 2 * Math.PI);
+            ctx.fillStyle = "#ffd700";
+            ctx.shadowColor = "#ffd700";
+            ctx.shadowBlur = 30;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            planets.forEach((planet, i) => {
+                const orbitAngle = angle * planet.speed + i;
+                const x = centerX + planet.distance * Math.cos(orbitAngle);
+                const y = centerY + planet.distance * Math.sin(orbitAngle);
+                
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, planet.distance, 0, 2 * Math.PI);
+                ctx.strokeStyle = "rgba(255,255,255,0.1)";
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(x, y, planet.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = planet.color;
+                ctx.fill();
+
+                if (planet.name === "Saturno") {
+                    ctx.beginPath();
+                    ctx.ellipse(x, y, planet.radius + 6, planet.radius + 2, 0, 0, 2 * Math.PI);
+                    ctx.strokeStyle = "#e8d8a8";
+                    ctx.stroke();
+                }
+            });
+            angle += 0.01;
+            requestAnimationFrame(drawSolarSystem);
+        }
+
+        drawSolarSystem();
+
+        // Animação de buraco negro
+        const bhCanvas = document.getElementById('blackHoleCanvas');
+        const bhCtx = bhCanvas.getContext('2d');
+        let bhAngle = 0;
+
+        function drawBlackHole() {
+            bhCtx.clearRect(0, 0, bhCanvas.width, bhCanvas.height);
+            const cx = bhCanvas.width / 2;
+            const cy = bhCanvas.height / 2;
+
+            // Horizonte de eventos
+            bhCtx.beginPath();
+            bhCtx.arc(cx, cy, 40, 0, 2 * Math.PI);
+            bhCtx.fillStyle = "#000";
+            bhCtx.shadowColor = "#444";
+            bhCtx.shadowBlur = 20;
+            bhCtx.fill();
+
+            // Disco de acreção girando
+            for (let i = 0; i < 20; i++) {
+                let r = 60 + Math.random() * 20;
+                let theta = bhAngle + i * 0.3;
+                let x = cx + r * Math.cos(theta);
+                let y = cy + r * Math.sin(theta);
+                bhCtx.beginPath();
+                bhCtx.arc(x, y, 2, 0, 2 * Math.PI);
+                bhCtx.fillStyle = `hsl(${i * 10 + 180}, 100%, 50%)`;
+                bhCtx.fill();
+            }
+
+            bhAngle += 0.05;
+            requestAnimationFrame(drawBlackHole);
+        }
+
+        drawBlackHole();
+    </script>
+
+    <a href="flipbord.html">  <h1 class="bt1"> ir para jogos e outro exemplo de sistema solar </h1> </a>
+    
+</body>
+</html>
+
+
+
+

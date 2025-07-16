@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Cadastro - Sorteio Premiado</title>
+
+        <style>
+               .bnt1{
+                     border-radius: 30px;
+                     color: black;
+                     background-color: yellow;
+                     height: 50px;
+                     width: 500px;
+                     transition: 1s;
+                     font-size: 30px;
+               }
+               .bnt1:hover{
+                    background-color: blue;
+                    color: white;
+                    transition: 1s;
+               }
+        </style>
+    </head>
+
+    <body class="body-container">
+        <section class="form-section">
+            <div>
+                <h1>✨ Cadastre seus dados pessoais ✨</h1>
+                <hr class="h">
+            </div>
+            
+            <form action="funci.php" method="get">
+                <div class="form-group">
+                    <label for="nome"><h1>Nome completo</h1></label>
+                    <input  class="input-field" name="nome1" type="text" placeholder="Digite seu nome completo" >
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><h1>E-mail</h1></label>
+                    <input  class="input-field" name="nome2" type="text"  placeholder="Digite seu melhor e-mail" >
+                </div>
+                
+                <div class="form-group">
+                    <label for="cpf"><h1>CPF</h1></label>
+                    <input  class="input-field" name="nome3" type="text"  placeholder="000.000.000-00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="data-nascimento"><h1>Data de nascimento</h1></label>
+                    <input  class="input-field " name="nome4" type="text" >
+                </div>
+                
+                <div class="form-group">
+                    <label for="cep"><h1>CEP</h1></label>
+                    <input  class="input-field" name="nome5" type="text"  placeholder="00000-000" >
+                </div>
+                
+                <div class="form-group">
+                    <label for="celular"><h1>Celular</h1></label>
+                    <input  class="input-field" name="nome6" type="text"  placeholder="(00) 0 0000-0000" maxlength="17" >
+                </div>
+                
+                <div class="form-group">
+                    <label for="bairro"><h1>Bairro</h1></label>
+                    <input  class="input-field" name="nome7" type="text"  placeholder="Seu bairro" >
+                </div>
+                
+                <input class="submit-button" type="submit" value=" 🎊 finalizar cadastro 🎊 ">
+
+               <a href="vis.php">  <h1 class="submit-button"> ir para paginas de visitas </h1> </a>
+
+               <a href="ia.php">  <h1 class="submit-button"> Testar IA </h1> </a>
+                
+            </form>
+       </section>
+
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const celularInput = document.getElementById('celular');
+                const form = document.getElementById('cadastroForm');
+                const submitBtn = document.getElementById('submitBtn');
+                const validationMessage = document.getElementById('validationMessage');
+                
+                // Formatação do campo de celular
+                celularInput.addEventListener('input', function(e) {
+                    let value = e.target.value;
+                    
+                    // Remove todos os caracteres não numéricos
+                    value = value.replace(/\D/g, '');
+                    
+                    // Se estiver vazio, limpa o campo completamente
+                    if (value.length === 0) {
+                        e.target.value = '';
+                        return;
+                    }
+                    
+                    // Aplica a formatação conforme o número de dígitos inseridos
+                    if (value.length <= 2) {
+                        value = value.replace(/^(\d{0,2})/, '($1');
+                    } else if (value.length <= 3) {
+                        value = value.replace(/^(\d{0,2})(\d{0,1})/, '($1) $2');
+                    } else if (value.length <= 7) {
+                        value = value.replace(/^(\d{0,2})(\d{0,1})(\d{0,4})/, '($1) $2 $3');
+                    } else {
+                        value = value.replace(/^(\d{0,2})(\d{0,1})(\d{0,4})(\d{0,4})/, '($1) $2 $3-$4');
+                    }
+                    
+                    e.target.value = value;
+                });
+                
+                // Prevenção do funcionamento padrão do link até validação
+                submitBtn.addEventListener('click', function(e) {
+                    // Verifica se o formulário é válido
+                    const isValid = form.checkValidity();
+                    
+                    if (!isValid) {
+                        e.preventDefault(); // Impede a navegação para hack.html
+                        validationMessage.style.display = 'block'; // Mostra a mensagem de validação
+                        
+                        // Destaca os campos não preenchidos
+                        const inputs = form.querySelectorAll('input[required]');
+                        inputs.forEach(input => {
+                            if (!input.validity.valid) {
+                                input.style.borderColor = '#ff6600';
+                                input.style.boxShadow = '0 0 5px #ff6600';
+                            }
+                        });
+                    }
+                });
+                
+                // Remove o destaque de erro quando o usuário começa a digitar
+                const inputs = form.querySelectorAll('input[required]');
+                inputs.forEach(input => {
+                    input.addEventListener('input', function() {
+                        if (this.value.trim() !== '') {
+                            this.style.borderColor = 'rgba(255, 204, 0, 0.3)';
+                            this.style.boxShadow = 'none';
+                            validationMessage.style.display = 'none';
+                        }
+                    });
+                });
+            });
+       </script>
+       
+       <footer>
+           <p>Desenvolvido por Diego, Lucas , Marcílio e Alexandre</p>
+       </footer>
+    </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Instagram</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fc9a11ac;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 350px;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-box {
+      background-color: white;
+      border: 1px solid #dbdbdb;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      transition: box-shadow 0.3s;
+      width: 100%;
+    }
+
+    .form-box:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-family: 'Billabong', cursive;
+      font-size: 48px;
+      margin-bottom: 30px;
+      color: #262626;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 8px 6px;
+      border: 1px solid #dbdbdb;
+      border-radius: 5px;
+      background: #fafafa;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: #a8a8a8;
+      background-color: #fff;
+    }
+
+    .input-group label {
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      color: #999;
+      font-size: 14px;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -8px;
+      left: 8px;
+      background-color: white;
+      padding: 0 4px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0095f6;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover:enabled {
+      background-color: #007cd1;
+    }
+
+    button:disabled {
+      background-color: #b2dffc;
+      cursor: default;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 16px 0;
+      font-size: 14px;
+      color: #000000;
+      border-top: 1px solid #dbdbdb;
+      background-color: #ffc80076;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h1 class="logo">Instagram</h1>
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="text" id="username" required placeholder=" " />
+          <label for="username">Telefone, nome de usuário ou email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" required placeholder=" " />
+          <label for="password">Senha</label>
+        </div>
+        <button type="submit" id="loginBtn" disabled>Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    Desenvolvido por Alexandre Vilela de Oliveira Junior
+  </footer>
+
+  <script>
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const loginBtn = document.getElementById('loginBtn');
+
+    function validateInputs() {
+      loginBtn.disabled = !(username.value.trim() && password.value.trim());
+    }
+
+    username.addEventListener('input', validateInputs);
+    password.addEventListener('input', validateInputs);
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Login enviado! (Simulação)');
+    });
+  </script>
+</body>
+</html>
