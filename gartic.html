@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo estilo Gartic</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e0f7fa;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #00796b;
+    }
+    canvas {
+      border: 2px solid #000;
+      background-color: #fff;
+      margin-top: 20px;
+    }
+    .controls {
+      margin-top: 15px;
+    }
+    .controls input, .controls button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo estilo Gartic</h1>
+  <p>Desenhe a palavra e tente fazer os outros adivinharem!</p>
+
+  <canvas id="canvas" width="600" height="400"></canvas>
+
+  <div class="controls">
+    <input type="text" id="guess" placeholder="Digite sua adivinhação...">
+    <button onclick="checkGuess()">Adivinhar</button>
+  </div>
+
+  <div id="result"></div>
+
+  <footer>
+    Desenvolvido por Alexandre Vilela de Oliveira Junior
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    canvas.addEventListener('mousedown', () => drawing = true);
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseout', () => drawing = false);
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(e) {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#000';
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    }
+
+    // Palavra secreta (em um jogo real isso seria oculto para quem adivinha)
+    const palavraSecreta = "bolo";
+
+    function checkGuess() {
+      const input = document.getElementById('guess');
+      const result = document.getElementById('result');
+      const tentativa = input.value.trim().toLowerCase();
+
+      if (tentativa === palavraSecreta) {
+        result.textContent = "Parabéns! Você acertou!";
+        result.style.color = 'green';
+      } else {
+        result.textContent = "Tente novamente!";
+        result.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Espaço Estrelado com Ser Vagante</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    height: 100vh;
+  }
+  canvas {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+
+  let width, height;
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Criar estrelas normais
+  const starsCount = 200;
+  const stars = [];
+
+  for(let i = 0; i < starsCount; i++) {
+    stars.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 1.5 + 0.2,
+      alpha: Math.random(),
+      alphaChange: (Math.random() * 0.02) + 0.005
+    });
+  }
+
+  // Criar o ser vagante
+  const vagante = {
+    x: Math.random() * width,
+    y: Math.random() * height,
+    radius: 6, // maior que as estrelas
+    alpha: 1,
+    speedX: (Math.random() - 0.5) * 1.5,
+    speedY: (Math.random() - 0.5) * 1.5,
+    color: 'rgba(192,192,192,1)', // prateado
+    name: "Alexandre"
+  };
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Desenha estrelas piscando
+    for(let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+      ctx.fill();
+
+      // Atualiza alpha para piscar
+      star.alpha += star.alphaChange;
+      if(star.alpha <= 0) {
+        star.alpha = 0;
+        star.alphaChange = -star.alphaChange;
+      }
+      if(star.alpha >= 1) {
+        star.alpha = 1;
+        star.alphaChange = -star.alphaChange;
+      }
+    }
+
+    // Atualiza posição do ser vagante
+    vagante.x += vagante.speedX;
+    vagante.y += vagante.speedY;
+
+    // Mantém dentro da tela (rebote nas bordas)
+    if(vagante.x < 0 || vagante.x > width) vagante.speedX *= -1;
+    if(vagante.y < 0 || vagante.y > height) vagante.speedY *= -1;
+
+    // Desenha o ser vagante
+    ctx.beginPath();
+    ctx.shadowColor = 'rgba(192,192,192,0.9)';
+    ctx.shadowBlur = 20;
+    ctx.arc(vagante.x, vagante.y, vagante.radius, 0, Math.PI * 2);
+    ctx.fillStyle = vagante.color;
+    ctx.fill();
+    ctx.shadowBlur = 0; // reset
+
+    // Desenha o nome acima da estrela
+    ctx.font = 'bold 16px Arial';
+    ctx.fillStyle = 'rgba(192,192,192,0.9)';
+    ctx.textAlign = 'center';
+    ctx.fillText(vagante.name, vagante.x, vagante.y - vagante.radius - 10);
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>
+</body>
+</html>

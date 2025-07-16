@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Solar em 3D</title>
+    <style>
+        body {
+            background: #0a0a23;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0 10px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        #solar-system {
+            width: 100vw;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+        }
+        .planets-info {
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(20,20,40,0.7);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .planet {
+            margin-bottom: 20px;
+        }
+        .planet h2 {
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        .planet p {
+            margin: 0 0 5px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #aaa;
+            font-size: 1.1em;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Solar em 3D</h1>
+        <p>Explore como funciona o sistema solar com visualização 3D e detalhes de cada planeta.</p>
+    </header>
+    <section id="solar-system">
+        <canvas id="solarCanvas" width="900" height="400"></canvas>
+    </section>
+    <section class="planets-info">
+        <div class="planet">
+            <h2>Mercúrio</h2>
+            <p>O menor planeta do sistema solar e o mais próximo do Sol. Não possui atmosfera significativa e sua superfície é cheia de crateras.</p>
+        </div>
+        <div class="planet">
+            <h2>Vênus</h2>
+            <p>Conhecido como "estrela d'alva", possui uma atmosfera densa de CO₂ e temperaturas altíssimas.</p>
+        </div>
+        <div class="planet">
+            <h2>Terra</h2>
+            <p>Nosso lar, único planeta conhecido com vida. Possui atmosfera rica em oxigênio e água em estado líquido.</p>
+        </div>
+        <div class="planet">
+            <h2>Marte</h2>
+            <p>O planeta vermelho, famoso por suas calotas polares e possibilidade de abrigar vida no passado.</p>
+        </div>
+        <div class="planet">
+            <h2>Júpiter</h2>
+            <p>O maior planeta do sistema solar, composto principalmente de gases e famoso pela Grande Mancha Vermelha.</p>
+        </div>
+        <div class="planet">
+            <h2>Saturno</h2>
+            <p>Conhecido por seus impressionantes anéis compostos de gelo e poeira.</p>
+        </div>
+        <div class="planet">
+            <h2>Urano</h2>
+            <p>Possui uma coloração azulada devido ao metano em sua atmosfera e gira praticamente de lado.</p>
+        </div>
+        <div class="planet">
+            <h2>Netuno</h2>
+            <p>O planeta mais distante do Sol, com ventos fortíssimos e cor azul intensa.</p>
+        </div>
+    </section>
+    <footer>
+        Desenvolvido por Alexandre Vilela de Oliveira Junior usando HTML, CSS e JavaScript
+    </footer>
+    <script>
+        // Parâmetros dos planetas: [nome, cor, raio, distância do sol, velocidade orbital]
+        const planets = [
+            { name: "Mercúrio", color: "#b1b1b1", radius: 4, distance: 50, speed: 0.04 },
+            { name: "Vênus", color: "#e6c07b", radius: 7, distance: 80, speed: 0.03 },
+            { name: "Terra", color: "#3a9efd", radius: 8, distance: 110, speed: 0.025 },
+            { name: "Marte", color: "#c1440e", radius: 6, distance: 140, speed: 0.02 },
+            { name: "Júpiter", color: "#e3c07b", radius: 16, distance: 180, speed: 0.013 },
+            { name: "Saturno", color: "#e8d8a8", radius: 14, distance: 230, speed: 0.01 },
+            { name: "Urano", color: "#7de2fc", radius: 10, distance: 270, speed: 0.007 },
+            { name: "Netuno", color: "#4062bb", radius: 10, distance: 310, speed: 0.005 }
+        ];
+
+        const canvas = document.getElementById('solarCanvas');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        let angle = 0;
+
+        function drawSolarSystem() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Sol
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 25, 0, 2 * Math.PI);
+            ctx.fillStyle = "#ffd700";
+            ctx.shadowColor = "#ffd700";
+            ctx.shadowBlur = 30;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Órbitas e planetas
+            planets.forEach((planet, i) => {
+                // Órbita
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, planet.distance, 0, 2 * Math.PI);
+                ctx.strokeStyle = "rgba(255,255,255,0.1)";
+                ctx.stroke();
+
+                // Posição do planeta
+                const planetAngle = angle * planet.speed + i;
+                const x = centerX + planet.distance * Math.cos(planetAngle);
+                const y = centerY + planet.distance * Math.sin(planetAngle);
+
+                // Planeta
+                ctx.beginPath();
+                ctx.arc(x, y, planet.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = planet.color;
+                ctx.fill();
+
+                // Anéis de Saturno
+                if (planet.name === "Saturno") {
+                    ctx.beginPath();
+                    ctx.ellipse(x, y, planet.radius + 6, planet.radius + 2, 0, 0, 2 * Math.PI);
+                    ctx.strokeStyle = "#e8d8a8";
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    ctx.lineWidth = 1;
+                }
+            });
+
+            angle += 0.01;
+            requestAnimationFrame(drawSolarSystem);
+        }
+
+        drawSolarSystem();
+    </script>
+</body>
+</html>

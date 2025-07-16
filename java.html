@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Clique no Círculo</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            border: 2px solid black;
+        }
+        .circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clique no Círculo!</h1>
+    <p>Pontuação: <span id="score">0</span></p>
+    <div id="game-container"></div>
+    <script>
+        const gameContainer = document.getElementById('game-container');
+        const scoreDisplay = document.getElementById('score');
+        let score = 0;
+
+        function createCircle() {
+            const circle = document.createElement('div');
+            circle.classList.add('circle');
+            
+            const x = Math.random() * (gameContainer.clientWidth - 50);
+            const y = Math.random() * (gameContainer.clientHeight - 50);
+            
+            circle.style.left = `${x}px`;
+            circle.style.top = `${y}px`;
+            
+            circle.addEventListener('click', () => {
+                score++;
+                scoreDisplay.textContent = score;
+                circle.remove();
+                createCircle();
+            });
+            
+            gameContainer.appendChild(circle);
+        }
+
+        createCircle();
+    </script>
+</body>
+</html>

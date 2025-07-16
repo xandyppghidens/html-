@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robô Dançante</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #1a1a1a, #000000);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .cenario {
+      text-align: center;
+      color: white;
+    }
+
+    .luzes {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .luz {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: rgb(254, 254, 254);
+      animation: piscar 1s infinite;
+    }
+
+    @keyframes piscar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .palco {
+      background-color: #333;
+      width: 300px;
+      height: 400px;
+      margin: 0 auto;
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 0 30px #ff00ff;
+    }
+
+    .robo {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cabeca {
+      width: 50px;
+      height: 50px;
+      background-color: #00c3ff;
+      border-radius: 10px;
+    }
+
+    .corpo {
+      width: 40px;
+      height: 70px;
+      background-color: #0077aa;
+      margin: 5px 0;
+    }
+
+    .braco {
+      width: 20px;
+      height: 60px;
+      background-color: #00c3ff;
+      position: absolute;
+      top: 60px;
+      transform-origin: top;
+      transition: transform 0.3s;
+    }
+
+    .esquerdo {
+      left: -5px;
+    }
+
+    .direito {
+      right: -5px;
+    }
+
+    .perna {
+      width: 20px;
+      height: 60px;
+      background-color: #0077aa;
+      position: absolute;
+      bottom: 0;
+      transform-origin: top;
+      transition: transform 0.3s;
+    }
+
+    .esquerda {
+      left: 15px;
+    }
+
+    .direita {
+      right: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00ffcc;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ccaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="cenario">
+    <div class="luzes">
+      <div class="luz"></div>
+      <div class="luz"></div>
+      <div class="luz"></div>
+    </div>
+
+    <div class="palco">
+      <div class="robo" id="robo">
+        <div class="cabeca"></div>
+        <div class="corpo"></div>
+        <div class="braco esquerdo"></div>
+        <div class="braco direito"></div>
+        <div class="perna esquerda"></div>
+        <div class="perna direita"></div>
+      </div>
+    </div>
+
+    <button onclick="dancar()">Fazer o Robô Dançar</button>
+  </div>
+
+  <script>
+    function dancar() {
+      const robo = document.getElementById('robo');
+      const bracoEsq = robo.querySelector('.braco.esquerdo');
+      const bracoDir = robo.querySelector('.braco.direito');
+      const pernaEsq = robo.querySelector('.perna.esquerda');
+      const pernaDir = robo.querySelector('.perna.direita');
+
+      const interval = setInterval(() => {
+        bracoEsq.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
+        bracoDir.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
+        pernaEsq.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+        pernaDir.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+      }, 300);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        bracoEsq.style.transform = '';
+        bracoDir.style.transform = '';
+        pernaEsq.style.transform = '';
+        pernaDir.style.transform = '';
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Memória - Tema Anime</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #d500f9;
+      text-shadow: 2px 2px #fff;
+    }
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+    .card.flipped {
+      background-color: #ffcc80;
+      transform: rotateY(180deg);
+    }
+    .card.matched {
+      background-color: #80cbc4;
+      color: white;
+      cursor: default;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo da Memória - Tema Anime</h1>
+  <p>Encontre todos os pares de personagens de anime!</p>
+  <div class="game-board" id="gameBoard"></div>
+  <footer>
+    Desenvolvido por Alexandre Vilela de Oliveira Junior 
+  </footer>
+  <script>
+    const personagens = ['🐱‍👤', '🔥', '🍥', '⚔️', '👓', '🐉'];
+    const cards = [...personagens, ...personagens]; // duplicar para pares
+    let firstCard = null;
+    let secondCard = null;
+    let lock = false;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function createCard(content) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.content = content;
+      card.textContent = '';
+      card.addEventListener('click', () => {
+        if (lock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+        card.textContent = content;
+        card.classList.add('flipped');
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          lock = true;
+
+          if (firstCard.dataset.content === secondCard.dataset.content) {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            reset();
+          } else {
+            setTimeout(() => {
+              firstCard.textContent = '';
+              secondCard.textContent = '';
+              firstCard.classList.remove('flipped');
+              secondCard.classList.remove('flipped');
+              reset();
+            }, 1000);
+          }
+        }
+      });
+      return card;
+    }
+
+    function reset() {
+      [firstCard, secondCard, lock] = [null, null, false];
+    }
+
+    function initGame() {
+      shuffle(cards);
+      const board = document.getElementById('gameBoard');
+      cards.forEach(symbol => {
+        const card = createCard(symbol);
+        board.appendChild(card);
+      });
+    }
+
+    initGame();
+  </script>
+</body>
+</html>

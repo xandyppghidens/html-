@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Instagram</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #fdf497 0%, #fdf497 20%, #fd5949 60%, #d6249f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .login-container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .logo {
+            font-family: 'Billabong', cursive;
+            font-size: 48px;
+            color: #262626;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            user-select: none;
+        }
+        .input-group {
+            width: 100%;
+            margin-bottom: 18px;
+            position: relative;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            background: #fafafa;
+            font-size: 16px;
+            transition: border 0.3s;
+            outline: none;
+        }
+        .input-group input:focus {
+            border: 1.5px solid #d6249f;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px 0;
+            background: linear-gradient(90deg, #fd5949 0%, #d6249f 100%);
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+        .login-btn:active {
+            transform: scale(0.97);
+        }
+        .message {
+            margin-top: 18px;
+            color: #d6249f;
+            font-size: 15px;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            text-align: center;
+        }
+        .message.show {
+            opacity: 1;
+        }
+        .forgot {
+            margin-top: 14px;
+            font-size: 13px;
+            color: #00376b;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .forgot:hover {
+            color: #d6249f;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">Instagram</div>
+        <form id="loginForm" autocomplete="off">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Telefone, nome de usuário ou email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="login-btn">Entrar</button>
+            <div class="message" id="message"></div>
+        </form>
+        <a href="#" class="forgot">Esqueceu a senha?</a>
+    </div>
+    <script>
+        const form = document.getElementById('loginForm');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            message.textContent = '';
+            message.classList.remove('show');
+
+            // Animação de carregamento
+            message.textContent = 'Entrando...';
+            message.classList.add('show');
+            setTimeout(() => {
+                // Simulação de login
+                const user = document.getElementById('username').value;
+                const pass = document.getElementById('password').value;
+                if (user === 'instagram' && pass === '1234') {
+                    message.textContent = 'Login bem-sucedido!';
+                    message.style.color = '#27ae60';
+                } else {
+                    message.textContent = 'Usuário ou senha incorretos.';
+                    message.style.color = '#d6249f';
+                }
+            }, 1200);
+        });
+    </script>
+</body>
+</html>

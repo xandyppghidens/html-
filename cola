@@ -1,0 +1,67 @@
+TAGS DO HTML
+<html> -> começa um programa em html
+</html> -> termina o programa em html
+<head>-> começa a cabeça do programa(configurações) 
+</head> -> termina as configurações
+<body>-> começa o corpo do site 
+</body> -> termina o corpo do site
+<p> -> começa um paragrafo
+</p> -> termina um paragrafo
+<style>-> começa a estilização do site ( efeitos visuais)
+</style> -> termina os efeitos visuais
+<h1>-> começa o texto de importancia 1
+</h1> -> termina o texto de importancia 1
+<h6> -> começa um texto de importancia 6
+</h6> -> termina o texto de importancia 6 
+<img> -> coloca uma imagem no site
+<link rel="stylesheet" href="css/style.css"> -> conecta o html com arquivos de estilização
+<div> -> começa uma divisao de conteudo 
+</div> -> termina uma divisão de conteudo
+
+<!-- Comentario aqui -->
+
+---------------------------------------
+sub comandos do html (parametros ou atributos)
+src="" -> permite escolher a imagem dentro do IMG
+href="" -> permite uma referencia com arquivo externo
+class="" -> Cria um "apelido" que classifica o elemento
+id="" -> Cria um "apelido" que identifica o elemento
+
+---------------------------------------
+Comandos de CSS
+
+elemento{
+    color:red; -> muda a cor do texto
+    font-size: 30px; -> muda o tamanho do texto
+    font-weight:900; -> aplica negrito no texto
+    font-family: sans-serif; -> muda a fonte do texto
+    backgorund-color: red; -> muda a cor de fundo
+    width: 50%; -> largura
+    height: 500px; -> Altura
+    padding-top: 50px -> afasta o elemento em cima (dentro)
+    padding-botton:50px -> afasta o elemento em baixo (dentro)
+    padding-left:50px -> afasta o elemento na esquerda (dentro)
+    padding-right:50px -> afasta o elemento na direita (dentro)
+    padding:50px -> afasta os elementos em todos os lados (dentro)
+    margin-top: 50px -> afasta o elemento em cima (fora)
+    margin-botton:50px -> afasta o elemento em baixo(fora)
+    margin-left:50px -> afasta o elemento na esquerda(fora)
+    margin-right:50px -> afasta o elemento na direita(fora)
+    margin:50px -> afasta os elementos em todos os lados(fora)
+    border:5px solid blue; -> espessura tipo cor
+    display block: transforma inline-lvl em box-lvl
+    display:flex: transforma o grupo de box-lvl em inline-lvl
+    /* comentario aqui */
+    flex-wrap: wrap; permite todo elemento flex para que ele quebre a linha apos atingir o limite do componente
+
+    backgorund-image: url(../imagem/nome do arquivo [imagem ou gif])
+    backgorund-repeat no repeat -> Faz com oq que o elemento não se repita 
+    backgorund size-cover -> estica o elemento 
+    display-flex -> Faz o elemento ficar lado a lado 
+
+}
+
+----------------------------------------------
+Box -lvl -> todo comando que bloqueia o espaço a frente
+
+inline-lvl -> todo comando que não bloqueia o espaço a frente

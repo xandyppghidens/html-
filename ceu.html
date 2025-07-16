@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Espaço Estrelado</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    height: 100vh;
+  }
+  canvas {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+
+  let width, height;
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  
+  const starsCount = 200;
+  const stars = [];
+
+  for(let i = 0; i < starsCount; i++) {
+    stars.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 1.5 + 0.2,
+      alpha: Math.random(),
+      alphaChange: (Math.random() * 0.02) + 0.005
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    for(let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+      ctx.fill();
+
+      
+      star.alpha += star.alphaChange;
+      if(star.alpha <= 0) {
+        star.alpha = 0;
+        star.alphaChange = -star.alphaChange;
+      }
+      if(star.alpha >= 1) {
+        star.alpha = 1;
+        star.alphaChange = -star.alphaChange;
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>
+</body>
+</html>
