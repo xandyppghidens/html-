@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviario_PPG</title>
+    <style>
+        a{
+          text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-content {
+            width: 980px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #1877f2;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: cursive;
+            margin-right: 150px;
+        }
+
+        .login-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-input {
+            margin-right: 10px;
+        }
+
+        .login-input input {
+            padding: 8px 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+        }
+
+        .login-input label {
+            display: block;
+            font-size: 12px;
+            color: #606770;
+            margin-bottom: 2px;
+        }
+
+        .login-button {
+            padding: 8px 16px;
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: #1877f2;
+            font-size: 12px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .main-content {
+            margin-top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .find-account-box {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #dadde1;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .find-account-box h2 {
+            font-size: 17px;
+            color: #1c1e21;
+            font-weight: bold;
+            border-bottom: 1px solid #dadde1;
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .find-account-box p {
+            color: #606770;
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 20px;
+        }
+
+        .find-account-box input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .find-account-box .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .cancel-button {
+            background-color: #e4e6eb;
+            color: #4b4f56;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-button {
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="viao1.html">   <h1> Voltar </h1> </a>
+
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">Aviario_PPG</div>
+            <div class="login-form">
+                <div class="login-input">
+                    <label for="email">Email ou telefone</label>
+                    <input type="text" id="email">
+                </div>
+                <div class="login-input">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha">
+                    <a href="viao2.html" class="forgot-password">Esqueceu a conta?</a>
+                </div>
+                <button class="login-button">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="find-account-box">
+            <h2>Encontre sua conta</h2>
+            <p>Insira seu email ou número de celular para procurar sua conta.</p>
+            <input type="text" placeholder="Email ou número de celular">
+            <div class="buttons">
+                <button class="cancel-button">Cancelar</button>
+                <button class="search-button">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

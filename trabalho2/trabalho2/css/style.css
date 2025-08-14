@@ -1,0 +1,347 @@
+.img1{
+      width: 15%;
+      height: 300px;
+      margin-left: 20px;
+}
+
+
+.fl{
+    display: flex;
+}
+
+.s1{
+    width: 100%;
+    width: 100%;
+    background-image: url(../imagem/f6f.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tx1{
+     margin-left: 85px;
+     margin-top: 100px;
+     font-size: 20px;
+     color: rgb(255, 255, 255);
+     transition: 1s;
+     cursor: pointer;
+     font-family: cursive;
+}
+
+.tx1:hover{
+    color: yellow;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.d1{
+    margin-left: 100px;
+}
+
+.normal{
+    display: inline-block;
+    block-size: cover;
+}
+
+.s2{
+    width: 100%;
+    background-image: url(../imagem/f5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+}
+
+.tx2{
+     font-size: 50px;
+     color: rgb(255, 255, 255);
+     padding-left: 200px;
+     padding-top: 200px;
+     margin-left: 30px;
+     font-family: cursive;
+}
+
+.tx3{
+     font-size: 70px;
+     color: rgb(255, 248, 248);
+     padding-left: 430px;
+     margin-top: 50px;
+     font-weight: bold;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+     
+}
+
+
+span{
+    color: black;
+    transition: 1s;
+    cursor: pointer;
+    font-family: cursive;
+}
+
+span:hover{
+    color: rgb(0, 17, 250);
+    transition: 1s;
+    cursor: pointer;
+}
+
+.s3{
+     width: 100%;
+      margin-top: 100px;
+}
+
+.img2{
+     width: 30%;
+     margin-left: 100px;
+     border-radius: 30px;
+}
+
+.tx4{
+    width: 30%;
+      font-size: 30px;
+      margin-left: 320px;
+      margin-top: -130px;
+      font-weight: bold;
+      font-family: cursive;
+}
+
+.tx5{
+    width: 30%;
+    font-size: 30px;
+     margin-left: 170px;
+     font-weight: bold;
+     font-family: monospace;
+
+}
+
+.s4{
+    width: 100%;
+    margin-top: 100px;
+    background-color: blue;
+    height: 300px;
+}
+.tx6{
+    width: 50%;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    padding-top: 50px;
+    margin-left: 200px;
+    font-family: cursive;
+}
+
+.tx7{
+     width: 30%;
+     font-size: 30px;
+     color: white;
+     font-weight: bold;
+     margin-left: 350px;
+     margin-top: 30px;
+
+}
+
+.tx8{
+     margin-left: 1200px;
+      width: 30%;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      padding-top: -100px;
+      background-color: black;
+      height: 50px;
+     margin-right: 200px;
+      padding-left: 150px;
+      border-radius: 40px;
+      padding-top: 20px;
+      transition: 1s;
+      cursor: pointer;
+      font-family: monospace;
+}
+
+.tx8:hover{
+      transition: 1s;
+      cursor: pointer;
+      color: blue;
+      font-size: 40px;
+      background-color: black;
+      height: 70px;
+      padding-left: 120px;
+      
+}
+
+.tx9{
+     font-size: 40px;
+     margin-left: 74px;
+     font-weight: bold;
+     margin-top: 50px;
+     font-family: monospace;
+     transition: 1s;
+      cursor: pointer;
+
+
+}
+
+.tx9:hover{
+     transition: 1s;
+      cursor: pointer;
+      color: red;
+}
+
+.dd1{
+     width: 100%;
+}
+
+.s6{
+    width: 100%;
+}
+
+.img3{
+      margin-top: 70px;
+      width: 20%;
+      margin-left: 205px;
+      border-radius: 40px;
+      transition: 1s;
+      cursor: pointer;
+}
+
+.s7{
+    width: 100%;
+    
+}
+
+.tx10{
+     font-size: 40px;
+     margin-left: 74px;
+     font-weight: bold;
+     margin-top: 100px;
+     font-family: monospace;
+     transition: 1s;
+      cursor: pointer;
+
+
+}
+
+.tx10:hover{
+     transition: 1s;
+      cursor: pointer;
+      color: red;
+}
+
+.s8{
+    width: 100%;
+}
+
+.img4{
+       margin-left: 150px;
+       width: 15%;
+       margin-top: 40px;
+}
+
+.tx11{
+      margin-left: 150px;
+      font-size: 30px;
+      width: 15%;
+      font-weight: bold;
+      text-align: center;
+      background-color: green;
+      color: white;
+}
+
+.s9{
+    width: 100%;
+    margin-top: 150px;
+    background-color: gray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+  
+}
+
+
+.img5{
+    
+      width: 50%;
+      height: 300px;
+      margin-left: 50px;
+      margin-top: 30px;
+      transition: 1s;
+      cursor: pointer;
+      
+
+}
+
+.img5:hover{
+      background-image: url(../imagem/gif.gif);
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: 1s;
+      cursor: pointer;
+     
+}
+
+.tx12{
+        font-size: 30px;
+        margin-left: 230px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        width: 20%;
+        margin-top: 30px;
+        transition: 1s;
+       cursor: pointer;
+}
+.tx12:hover{
+      color: rgb(206, 206, 206);
+      transition: 1s;
+      cursor: pointer;
+      font-family: cursive;
+}
+
+.tx13{
+      font-size: 20px;
+      margin-left: 230px;
+      font-weight: bold;
+      margin-top: 20px;
+       transition: 1s;
+      cursor: pointer;
+
+}
+
+.tx13:hover{
+      color: rgb(206, 206, 206);
+      transition: 1s;
+      cursor: pointer;
+      font-family: cursive;
+}
+
+.s10{
+     margin-top: 30px;
+    width: 100%;
+    background-color: rgb(3, 161, 40);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40px;
+
+}
+
+.tx14{
+        margin-left: 670px;
+        font-size: 20px;
+        font-family: cursive;
+        padding-top: 10px;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+.img6{
+    width: 30px;
+    height: 30px;
+    padding-left: 130px;
+    transition: 1s;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+}
+
