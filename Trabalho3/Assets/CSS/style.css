@@ -1,0 +1,383 @@
+:root
+{
+    --primary-color: #c02d4f;
+    --secondary-color: #af333b;
+    --light-accent: #CCCCCC;
+    --gray: #838383;
+    --white: #FFFFFF;
+    --zap: #61CE70;
+}
+
+input, select
+{
+    border: 1px solid #CCCCCC;
+    padding: 12px 8px;
+    border-radius: 16px;
+    width: 100%;
+}
+
+header
+{
+    background-color: var(--white);
+    height: 85px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav
+{
+    height: inherit;
+    width: inherit;
+    display: flex;
+    padding: 24px 16px;
+    background-color: var(--white);
+    justify-content: space-between;
+    max-width: min(1200px, 100%);
+}
+
+nav img
+{
+    height: 100%;
+}
+
+.container_logos
+{
+    display: flex;
+    gap: 40px;
+}
+
+.container_buttons
+{
+    display: flex;
+    gap: 24px;
+}
+
+.container_button_nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-transform: uppercase;
+    text-align: center;
+    width: 170px;
+    padding: 8px;
+    border-radius: 16px;
+    user-select: none;
+}
+
+.whatsapp
+{
+    background-color: var(--zap);
+}
+
+.container_button_nav img
+{
+    filter: invert(1);
+}
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: fit-content;
+}
+
+.hero_sect
+{
+    width: 100%;
+    height: 456px;
+    background-color: var(--primary-color);
+    display: grid;
+    grid-template-rows:[title-start] 1fr [title-end carrossel-start] 4fr [carrossel-end];
+    grid-template-columns: [carrosel-end] 1fr [contentt-start] min(1200px, 100%) [contentt-end] 1fr [carrosel-end];
+}
+
+.container_hero_title
+{
+    grid-row: title;
+    grid-column: contentt;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: var(--white);
+}
+
+.container_hero_carrossel
+{
+    grid-row: carrossel;
+    grid-column: carrosel;
+    height: 100%;
+    width: 100%;
+
+    background: url(../images/air.jpg) no-repeat center / cover;
+}
+
+.container_first_form
+{
+    display: grid;
+    grid-template-columns: 1fr [contentt-start] min(1200px, 100%) [contentt-end] 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.wrapper_form
+{
+    display: flex;
+    justify-content: space-between;
+    grid-column: contentt;
+    grid-row: 1 / 2;
+    gap: 8px;
+    padding: 16px 16px 0 16px;
+}
+
+.wrapper_form .wrapper_input
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+}
+
+.wrapper_input label
+{
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.zap_button
+{
+    grid-column: contentt;
+    grid-row: 2 / -1;
+    padding: 16px 0;
+    border-radius: 16px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    margin: 0 16px;
+    user-select: none;
+}
+
+.cards_sect
+{
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: 32px 0;
+}
+
+.wrapper_card
+{
+    padding: 16px;
+    background-color: var(--white);
+    border-radius: 32px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.424);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    color: var(--gray);
+    margin: 0 16px;
+}
+
+.wrapper_card img
+{
+    border-radius: 16px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.wrapper_card h2
+{
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 16px 0 32px 0;
+}
+
+.wrapper_card p strong
+{
+    font-weight: bold;
+}
+
+.contact_sect
+{
+    background-color: var(--primary-color);
+    height: 668px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contact_sect h2
+{
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.contact_sect p
+{
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.container_form_contact
+{
+    width: 100%;
+    padding: 0 16px;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
+    gap: 32px;
+}
+
+.container_form_contact .wrapper_input
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container_form_contact .wrapper_input label
+{
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.input_msn
+{
+    grid-row: 4 / 5;
+    grid-column: 1 / -1;
+}
+
+.input_msn input
+{
+    height: 100%;
+}
+
+.container_form_contact button
+{
+    grid-row: 5 / 6;
+    grid-column: 1 / -1;
+    border-radius: 16px;
+    color: var(--primary-color);
+    height: 80%;
+}
+
+footer
+{
+    padding: 16px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer h3
+{
+    padding-top: 16px;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.container_tel
+{
+    padding: 32px 16px;
+    display: grid;
+    width: 100%;
+    max-width: 1200px;
+    align-items: flex-start;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.wrapper_tel
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 90%;
+}
+
+.wrapper_tel p
+{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--primary-color);
+}
+
+.wrapper_tel p::before
+{
+    content: '';
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    aspect-ratio: 1 / 1;
+    background: url(../images/icon_telefone.png) center / contain, #8090AF;
+    padding: 4px;
+    border-radius: 4px;
+    filter: invert(1);
+}
+
+.wrapper_copy
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.wrapper_copy .copy
+{
+    font-size: 0.65rem;
+    font-weight: bold;
+    line-height: 1.25rem;
+}
+
+.wrapper_copy p span
+{
+    color: red;
+}
+
+.wrapper_copy p strong
+{
+    font-weight: bold;
+}
+
+.container_footer
+{
+    align-items: center;
+    padding: 0 16px;
+}
+
+.container_footer img
+{
+    width: 80%;
+    margin: 0 auto;
+}
