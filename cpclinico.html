@@ -1,0 +1,1268 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/padrao.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+
+    <style>
+           body {
+      font-family: Arial, sans-serif;
+      background-color: #e3e1de;
+      margin: 0;
+      padding: 0;
+      color: #9c8f6d;
+    }
+
+    .clinico-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .clinico-section h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #9c8f6d;
+    }
+
+    .especialidades {
+      font-size: 14px;
+      margin-bottom: 40px;
+      line-height: 2;
+    }
+
+    .especialidades span {
+      margin: 0 8px;
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      height: 200px;
+    }
+
+    .card h2 {
+      font-size: 16px;
+      color: #9c8f6d;
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 5px 0 15px;
+      color: #333;
+    }
+
+    .card button {
+      background-color: #9c8f6d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .card button:hover {
+      background-color: #7c6b4f;
+    }
+
+     .doutor{
+           z-index: 1;
+           position: fixed;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #333333cf;
+           display: none;
+          
+          
+    }
+
+    .doutor img{
+           
+           width: 230px;
+           background-color: white;
+           margin-top: 190px;
+           margin-left: 60px;
+           border-radius: 10px;
+
+           
+    }
+
+    
+
+    .doutor h1{
+         font-size: 25px;
+         color: #c9742fcf;
+         font-weight: bold;
+    }
+
+    .doutor h2{
+       color: rgb(3, 3, 3);
+       font-weight: bold;
+       font-size: 18px;
+
+    }
+
+    .doutor h3 span{
+       font-size: 18px;
+      color: rgb(7, 7, 7);
+    }
+
+    .doutor h4 span{
+        font-weight: bold;
+    }
+
+    .doutor h4{
+        font-size: 18px;
+        color: black;
+    }
+
+    .aaa{
+       padding-left: 370px;
+       margin-top: -180px;
+      
+       
+    }
+
+    .fx{
+         display: flex;
+        flex-wrap: wrap;
+    }
+
+    .hm{
+        background-color: white;
+        height: 650px;
+        width: 750px;
+        margin-top: 80px;
+        margin-left: 565px;
+        border-radius: 50px;
+        border: solid black 8px;
+        margin-bottom: 30px;
+        
+
+        
+    }
+
+    .ali{
+       margin-top: 200px;
+       margin-inline: auto;
+       background-color: blueviolet;
+       color: white;
+       font-size: 30px;
+       border-radius: 20px;
+       width: 300px;
+       text-align: justify;
+       padding-left: 200px;
+       border: solid 8px rgba(255, 255, 0, 0.67);
+       transition: 2s;
+       cursor: pointer;
+       text-decoration: none;
+       
+    }
+
+    .ali:hover{
+      transition: 2s;
+       cursor: pointer;
+    }
+
+
+    #cr1:target{
+      display: block;
+    }
+
+     #cr2:target{
+      display: block;
+    }
+
+     #cr3:target{
+      display: block;
+    }
+
+     #cr4:target{
+      display: block;
+    }
+
+     #cr5:target{
+      display: block;
+    }
+
+     #cr6:target{
+      display: block;
+    }
+
+     #cr7:target{
+      display: block;
+    }
+
+     #cr8:target{
+      display: block;
+    }
+
+     #cr9:target{
+      display: block;
+    }
+
+     #cr10:target{
+      display: block;
+    }
+
+     #cr11:target{
+      display: block;
+    }
+
+     #cr12:target{
+      display: block;
+    }
+
+     #cr13:target{
+      display: block;
+    }
+
+     #cr14:target{
+      display: block;
+    }
+
+     #cr15:target{
+      display: block;
+    }
+
+    
+     #cr16:target{
+      display: block;
+    }
+
+
+     #cr17:target{
+      display: block;
+    }
+
+
+     #cr18:target{
+      display: block;
+    }
+
+
+     #cr19:target{
+      display: block;
+    }
+
+     #cr20:target{
+      display: block;
+    }
+
+     #cr21:target{
+      display: block;
+    }
+
+
+     #cr22:target{
+      display: block;
+    }
+
+
+     #cr23:target{
+      display: block;
+    }
+
+
+
+    </style>
+</head>
+
+<body>
+   <!-- aqui começa o 3d -->
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr1">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p1.png" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> VITOR OLIVEIRA GANEM</h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Faculdade de medicina em Barbacena. Especialização em Cirurgia Vascular...</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 221709</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section> 
+
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr2">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p2.webp" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> FLÁVIO HENRIQUE ANASTÁCIO DE CASTRO</h2>
+                       <br>
+                       <h3> <span>  Descrição: </span>  Formado pela Faculdade Federal de Ouro Preto. Especialista em cardiologia...</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 68266</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr3">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">  <style>.fx .xa{
+                   margin-top: 150px;
+                 }</style>
+                      <img class="xa"  src="imagem/p3.jpg" >
+                 </div>
+
+                 <div class="aaa"> 
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Madara</h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Formado pela Faculdade de Medicina de Volta Redonda. Áreas de atuação: Cardiologia, Clínica Médica, Ecocardiografia.</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 43790</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+<section class="fx"> 
+         <section class="doutor a2" id="cr4">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p4.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> RICARDO MENDES LAFETÁ</h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Curso de Pós-Graduação em Terapia Intensiva. 
+                        Áreas de atuação: Consultório Médico, 
+                        Ecocardiografia, Cardiologia.</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 22065</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+       <section class="fx"> 
+         <section class="doutor a2" id="cr5">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p5.webp" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1>PILOTO </h1>
+                       <br>
+                       <h2> MAX VIVAS CASTRO </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Residência em Cirurgia Geral no Hospital das Clínicas da UFMG. Residência em Cirurgia Pediátrica no Hospital Odilon Behrens.</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 39014</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr6">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p6.avif" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> FELIPE LIMA CARDOSO </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Médico graduado em Belo Horizonte com título de especialista em Cirurgia Plástica pela SBCP. Membro titular da SBCP, ex-preceptor da Residência de Cirurgia Plástica do Hospital Mater Dei e diretor da SBCP.</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 50573</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr7">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p7.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> FREITAS CALLIL </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Dermatologia pela Santa Casa do Rio de Janeiro e preceptoria no Hospital das Clínicas de São Paulo (USP).</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 50165</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr8">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p8.webp" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> PEIXOTO CARDOSO </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Dermatologia pela Universidade Federal do Triângulo Mineiro. Membro da Sociedade Brasileira de Cirurgia de Restauração Capilar (ABCRC).</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 17601</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr9">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx"> <style> .fx .xa1{
+                      margin-top: 60px;
+                      
+                 } </style>
+                      <img class="xa1"  src="imagem/p9.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> ENRICO MARTINS DE PAIVA </h2>
+                       <br>
+                       <h3 class="f" > <style> .aaa .f{
+                        font-size: 10px
+                        ;
+                        margin-top: -190px;
+                         
+                       } 
+                       
+                       </style> <span>  Descrição:<br> </span> Graduado pela Faculdade de Ciências Médicas de Minas Gerais em 1995. Residência em Cirurgia do Aparelho Digestivo pela FHEMIG, no Hospital Felício Rocho, em Belo Horizonte. Residência em Cirurgia do Trauma, no Hospital João XXIII, em Belo Horizonte – MG. Membro titular da Sociedade Brasileira de Endoscopia. Membro titular da Sociedade Brasileira de Cirurgia Videolaparoscópica. Membro do corpo clínico do Hospital Regional Dom Bosco. Membro do corpo clínico da Clínica Vitacenter, em Ibiá – MG. Membro do corpo clínico do Hospital Madrecor, em Uberlândia – MG. Membro do corpo clínico da Cardioclínica Gastrocenter.</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 29165</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr10">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p10.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Romas Silva </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Nutricionista pela UNIFRAN Com especialização em Fitoterapia e Prescrição de Fitoterápicos pela FAMEESP – Faculdade Metropolitana do Estado de São Paulo</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 15250</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section> 
+      
+      
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr11">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p11.jpeg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Paula </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Hospital universitário da universidade federal de Juiz de Fora – residência médica (clínica médica/gastroenterologista/endoscopia)ÁREAS DE ATUAÇÃO: Gastro / Endoscopia Digestiva</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 34126</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr12">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p12.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> UADYSON BORGES VIEIRA </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Há 29 anos, uma jornada começou com um propósito: cuidar das pessoas. Formado pela FMTM (hoje UFTM) em 1995, com residência em cirurgia geral e cirurgia do aparelho digestivo. Atua como cirurgião do aparelho digestivo e bariátrico. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 29425</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr13">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p13.avif" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> LUCAS DANTAS PEDROSA </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Dr. Lucas Dantas Pedrosa é graduado em Medicina pela Universidade de Itaúna – MG, com residência em Neurocirurgia e pós-graduação na área. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 71728</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr14">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p14.webp" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Romirau </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Nutricionista pela UNIFRAN Com especialização em Fitoterapia e Prescrição de Fitoterápicos pela FAMEESP – Faculdade Metropolitana do Estado de São Paulo </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 15250</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+
+       <section class="fx"> 
+         <section class="doutor a2" id="cr15">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p15.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> LEONARDO TANNUS MALKI </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Universidade de Ribeirão Preto. Especialista pelo conselho brasileiro de oftalmologia. Pós-graduação na USP. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 50157</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+
+       <section class="fx"> 
+         <section class="doutor a2" id="cr16">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p16.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> THIAGO ABRÃO FURTADO </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Residência médica na especialidade de ortopedia e traumatologia, com experiência em procedimentos minimamente invasivos. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 49871</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr17">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p17.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Moura Silva </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Graduada pela UFMG, com especialização em otorrinolaringologia e aperfeiçoamento em eletrofisiologia da audição. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 49686</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr18">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img class="df"  src="imagem/p18.jpg"  >
+
+                      <style>  .df{
+                        width: 200px;
+                        height: 210px;
+                        margin-top: -200px;
+                         } </style>
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>DRA. ELISA MYRTHES FONSECA BIZINOTO </h2>
+                       <br>
+                       <br>
+                       <h3 class="f" > <style> .aaa .f{
+                        font-size: 16px
+                        ;
+                        margin-top: -20px;
+
+                        width: 300px;
+                         
+                       } 
+                       
+                       </style> <span>  Descrição:<br><br> </span> Graduação e Licenciatura em Psicologia UNIUBE/Uberaba-MG.</h3>
+                       <br>
+                       <h4> <span> CRM: </span> 0418245</h4>
+
+                       
+                 </div>
+                 <a class="ali as" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+
+       <section class="fx"> 
+         <section class="doutor a2" id="cr19">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p19.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Gabriel </h2>
+                       <br>
+                       <h3 class="f" > <style> .aaa .f{
+                        font-size: 10px
+                        ;
+                        margin-top: -20px;
+                         
+                       } 
+                       
+                       </style> <span>  Descrição:<br> </span> Graduada em Psicologia, com pós-graduações em Psicologia Existencial, Humanista e Fenomenológica, e em Psicologia Infantil. Oferece um atendimento humanizado, acolhedor e voltado para o bem-estar emocional. Realiza acompanhamento psicológico de crianças, adolescentes e adultos, promovendo escuta empática, vínculo terapêutico e desenvolvimento pessoal em todas as fases da vida.</h3>
+                       <br>
+                       <h4> <span> CRP: </span> 04/80461</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr20">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p20.avif" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2>Jão </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Médica Especialista em Ultrassonografia Geral Crm: 44462/RQE: 42173. Pós Graduada em Nutrologia pela Abran. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 44462</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr21">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">  <style> .fx .xa3{
+                     margin-top: 80px;
+                 }</style>
+                      <img class="xa3" src="imagem/p21.jpg" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> MARCELLO FÉO </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Médico formado na Universidade Federal de Uberlândia (UFU). Especialista em Ultrassonografia geral e Doppler. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 49078</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr22">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p22.webp" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> WALLACE HOSTALACIO AVELAR </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Cursou e formou-se em Medicina na Universidade Federal do Estado do Rio de Janeiro (UNIRIO). </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 221709</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+
+      <section class="fx"> 
+         <section class="doutor a2" id="cr23">
+             <div class="hm">
+              <div class="fx"> 
+                 <div class="fx">
+                      <img  src="imagem/p23.webp" >
+                 </div>
+
+                 <div class="aaa">
+                       <h1> PILOTO </h1>
+                       <br>
+                       <h2> EDUARDO AUGUSTO </h2>
+                       <br>
+                       <h3> <span>  Descrição: </span> Faculdade de Medicina da Universidade Federal do Triângulo Mineiro. Residência em Cirurgia Geral. </h3>
+                       <br>
+                       <h4> <span> CRM: </span> 54184</h4>
+
+                       
+                 </div>
+                 <a class="ali" href="#">  Voltar  </a>
+                </div>
+              </div>
+        </section>
+      </section>
+
+    
+    
+      <!-- aqui termina o 3d -->
+    <header>
+           <section class="s1 fx centraliza">
+                  <div class="col-xl-3"> 
+                         
+                    <a href="index.html">   <img class="col-xl-2 img1" src="imagem/xandy.png"> </a>
+
+                  </div>
+                  
+                  <div class="col-xl-2 d1"> 
+
+                    <img class="col-xl-2 img2" src="imagem/icon_whatsapp.png" >
+
+                    <h1 class="tel"> (34) 9898934234</h1>
+                    <p class="tel"> Atendimento somente via Whatsapp e pessoalmente.</p>
+
+
+                  </div>
+                  
+                  <div class="col-xl-2 d2"> 
+
+                    <img class="col-xl-2 img2" src="imagem/relog.png" >
+
+                    <h1 class="tel"> Atendimento </h1>
+                    <h1 class="tel"> Segunda a sexta 7h ás 18h</h1>
+
+
+                  </div>
+                  
+                  <div class="col-xl-2 d3"> 
+
+                    <img class="col-xl-2 img2" src="imagem/calend.png">
+
+                    <br>
+
+                    <button class="but"> Agendamento <br> online </button>
+
+                  </div>
+                  
+                  <div class="col-xl-3 d4"> 
+
+                     <img class="ml-5 col-xl-1 mr-5 img2" src="imagem/insta.png" >
+                     <img class="ml-5 col-xl-1 mr-5 img2" src="imagem/fece.png" >
+
+                  </div>
+           </section>
+
+           <hr class="line">
+
+           <section class="s2 centraliza">
+                   <nav>
+                       <ul>
+                          <a href="cardio.html">  <li> A cardioclinica </li> </a>
+                          <a href="cpclinico.html"> <li> Corpo clinico </li>  </a>
+                           <a href="servicos.html">  <li> Serviços/exame </li> </a>
+                          <a href="convenios.html"> <li> Convenios </li> </a>
+                          <a href="fale.html">  <li> Fale conosco </li> </a>
+                       </ul>
+                   </nav>
+           </section>
+    </header>
+
+    <main>
+
+  <section class="clinico-section">
+    <h1>Corpo Clínico</h1>
+    <div class="especialidades">
+      Angiologia | Cardiologia | Cirurgia Geral | Cirurgia Plástica | Dermatologia | Gastroenterologia |<br>
+      Neurocirurgia e Tratamento da Coluna Vertebral / Dor | Nutróloga | Oftalmologia | Ortopedia | Otorrinolaringologia | Psicologia |<br>
+      Ultrassonografia | Urologia
+    </div>
+
+    <div class="cards-container" >
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p1.png" alt="Dr. Vitor Oliveira Ganem">
+        <h2> VITOR OLIVEIRA GANEM</h2>
+        <p>CRM: 221709</p>
+        <a href="#cr1"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p2.webp" alt="Dr. Flávio Henrique Anastácio de Castro">
+        <h2> FLÁVIO HENRIQUE ANASTÁCIO DE CASTRO</h2>
+        <p>CRM: 68266</p>
+       <a href="#cr2"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p3.jpg" alt="Dr. Ramires Mendes Lafetá">
+        <h2> Madara </h2>
+        <p>CRM: 43790</p>
+        <a href="#cr3"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p4.jpg" alt="Dr. Ricardo Mendes Lafetá">
+        <h2> RICARDO MENDES LAFETÁ</h2>
+        <p>CRM: 22065</p>
+<a href="#cr4"> <button>Ler Mais</button> </a>
+      </div>
+    </div>
+  </section>
+
+<section class="clinico-section">
+
+    <div class="cards-container">
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p5.webp" alt="Dr. Vitor Oliveira Ganem">
+        <h2> MAX VIVAS CASTRO</h2>
+        <p>CRM: 221709</p>
+       <a href="#cr5"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p6.avif" alt="Dr. Flávio Henrique Anastácio de Castro">
+        <h2> FELIPE LIMA CARDOSO</h2>
+        <p>CRM: 68266</p>
+       <a href="#cr6"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p7.jpg" alt="Dr. Ramires Mendes Lafetá">
+        <h2> FREITAS CALLIL</h2>
+        <p>CRM: 43790</p>
+       <a href="#cr7"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p8.webp" alt="Dr. Ricardo Mendes Lafetá">
+        <h2>  PEIXOTO CARDOSO </h2>
+        <p>CRM: 22065</p>
+        <a href="#cr8"> <button>Ler Mais</button> </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="clinico-section">
+
+    <div class="cards-container">
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p9.jpg" alt="Dr. Vitor Oliveira Ganem">
+        <h2> ENRICO MARTINS DE PAIVA</h2>
+        <p>CRM: 221709</p>
+       <a href="#cr9"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p10.jpg" alt="Dr. Flávio Henrique Anastácio de Castro">
+        <h2> Romas Silva</h2>
+        <p>CRM: 68266</p>
+       <a href="#cr10"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p11.jpeg" alt="Dr. Ramires Mendes Lafetá">
+        <h2> Paulo </h2>
+        <p>CRM: 43790</p>
+        <a href="#cr11"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p12.jpg" alt="Dr. Ricardo Mendes Lafetá">
+        <h2> UADYSON BORGES VIEIRA</h2>
+        <p>CRM: 22065</p>
+       <a href="#cr12"> <button>Ler Mais</button> </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="clinico-section">
+
+    <div class="cards-container">
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p13.avif" alt="Dr. Vitor Oliveira Ganem">
+        <h2> LUCAS DANTAS PEDROSA</h2>
+        <p>CRM: 221709</p>
+        <a href="#cr13"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p14.webp" alt="Dr. Flávio Henrique Anastácio de Castro">
+        <h2>Romirau</h2>
+        <p>CRM: 68266</p>
+      <a href="#cr14"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p15.jpg" alt="Dr. Ramires Mendes Lafetá">
+        <h2> LEONARDO TANNUS MALKI</h2>
+        <p>CRM: 43790</p>
+        <a href="#cr15"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p16.jpg" alt="Dr. Ricardo Mendes Lafetá">
+        <h2> THIAGO ABRÃO FURTADO</h2>
+        <p>CRM: 22065</p>
+        <a href="#cr16"> <button>Ler Mais</button> </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="clinico-section">
+
+    <div class="cards-container">
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p17.jpg" alt="Dr. Vitor Oliveira Ganem">
+        <h2>Moura Silva</h2>
+        <p>CRM: 221709</p>
+       <a href="#cr17"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p18.jpg" alt="Dr. Flávio Henrique Anastácio de Castro">
+        <h2> ELISA MYRTHES FONSECA BIZINOTO</h2>
+        <p>CRM: 68266</p>
+        <a href="#cr18"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p19.jpg" alt="Dr. Ramires Mendes Lafetá">
+        <h2>Gabriel</h2>
+        <p>CRM: 43790</p>
+        <a href="#cr19"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p20.avif" alt="Dr. Ricardo Mendes Lafetá">
+        <h2>Jão</h2>
+        <p>CRM: 22065</p>
+        <a href="#cr20"> <button>Ler Mais</button> </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="clinico-section">
+
+    <div class="cards-container">
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p21.jpg" alt="Dr. Vitor Oliveira Ganem">
+        <h2> MARCELLO FÉO</h2>
+        <p>CRM: 221709</p>
+        <a href="#cr21"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p22.webp" alt="Dr. Flávio Henrique Anastácio de Castro">
+        <h2> WALLACE HOSTALACIO AVELAR</h2>
+        <p>CRM: 68266</p>
+        <a href="#cr22"> <button>Ler Mais</button> </a>
+      </div>
+
+      <div class="card">
+        <h2>PILOTO</h2>
+        <img src="imagem/p23.webp" alt="Dr. Ramires Mendes Lafetá">
+        <h2> EDUARDO AUGUSTO</h2>
+        <p>CRM: 43790</p>
+      <a href="#cr23"> <button>Ler Mais</button> </a>
+      </div>
+
+      
+    </div>
+  </section>
+
+
+    </main>
+
+
+    <footer>
+        <section class="footer_sect">
+            <div class="container_footer">
+                <img src="imagem/xandy.png" alt="" class="logo_footer">
+                <div class="wrapper_redes_footer">
+                    <img src="imagem/fece.png" alt="">
+                    <img src="imagem/insta.png" alt="">
+                </div>
+            </div>
+            <div class="container_footer">
+                <h3>Atendimento somente via Whatsapp e pessoalmente</h3>
+                <div class="wrapper_contact_footer">
+                    <img src="imagem/icon_whatsapp.png" alt="">
+                    <p>(34) 98700-5822</p>
+                </div>
+                <div class="wrapper_contact_footer">
+                    <img  src="imagem/xandy.png " >
+                    <p>Localizado em Xandy island</p>
+                </div>
+            </div>
+            <div class="container_footer">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.4411328286537!2d-46.94528788829528!3d-19.608429628301046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b037003dacb1a3%3A0x7fc314624d4e362e!2sSenac%20em%20Arax%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1756772216948!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+            </div>
+        </section>
+
+        <br>
+     
+        
+        <section class="foot_sect">
+            <div class="wrapper_txt">
+                <p>criado por <strong>Ninguém sabe </strong></p>
+            </div>
+        </section>
+    </footer>
+
+</body>
+
+</html>
