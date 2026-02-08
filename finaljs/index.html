@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Js - Mobile Version</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/padrao.css">
+
+    <style>
+        body {
+
+            background-color: rgb(165, 89, 18);
+        }
+
+        .slider {
+
+            width: 80%;
+            height: 300px;
+            overflow: hidden;
+            background-color: #eee;
+            margin-left: 43px;
+            margin-top: 20px;
+            border-radius: 30px;
+            border: solid gold;
+
+        }
+
+
+
+
+
+        .sliderG {
+            display: flex;
+            width: 400%;
+            height: 100%;
+
+        }
+
+
+
+
+
+        .sliderG input {
+            display: none;
+
+        }
+
+
+
+
+
+        .slideunico {
+            width: 25%;
+            height: 100%;
+            transition: 0.6s;
+
+        }
+
+
+
+        .slideunico img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+
+
+
+
+        #bola1:checked~.primeiro {
+            margin-left: 0;
+        }
+
+        #bola2:checked~.primeiro {
+            margin-left: -25%;
+        }
+
+        #bola3:checked~.primeiro {
+            margin-left: -50%;
+        }
+
+
+
+        .quadradinhos {
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+
+        }
+
+
+
+        .quadradinhos label {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+
+
+        .quadradinhos label img {
+            width: 30px;
+            opacity: 0.5;
+            border: solid 4px rgb(14, 14, 14);
+            border-radius: 20px;
+            transform: rotate(0deg);
+            transition: transform 300ms ease, opacity 300ms ease;
+
+        }
+
+
+
+        .s1:has(#bola1:checked) .quadradinhos label:first-child img {
+            opacity: 1;
+            transform: rotate(360deg);
+        }
+
+
+
+        .s1:has(#bola2:checked) .quadradinhos label:nth-child(2) img {
+            opacity: 1;
+            transform: rotate(360deg);
+        }
+
+
+
+        .s1:has(#bola3:checked) .quadradinhos label:last-child img {
+            opacity: 1;
+            transform: rotate(360deg);
+
+        }
+
+        /* --- Cards Empilhados (Mobile First) --- */
+        .container-cards {
+            display: flex;
+            flex-direction: column;
+            /* Um abaixo do outro */
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .card-item {
+            background: linear-gradient(145deg, #222, #000);
+            border: 2px solid gold;
+            border-radius: 20px;
+            width: 85%;
+            /* Cresceu para ocupar a largura do celular */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+        }
+
+        .card-icon img {
+            width: 120px;
+            /* Imagens VIP maiores como solicitado */
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card-item span {
+            color: gold;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* --- Depoimentos --- */
+        .depoimentos {
+            padding: 30px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .depoimentos h2 {
+            text-align: center;
+            color: gold;
+            margin-bottom: 20px;
+        }
+
+        .depoimento-item {
+            background: #fff;
+            color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            font-style: italic;
+            border-left: 5px solid gold;
+        }
+
+        .depoimento-item b {
+            display: block;
+            margin-top: 10px;
+            color: rgb(165, 89, 18);
+            font-style: normal;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: #000;
+            padding: 30px 20px;
+            text-align: justify;
+           
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        footer b {
+            color: gold;
+        }
+
+       .home { width: 100%; background: #000; height: 100px; display: flex; justify-content: space-around; align-items: center; border-top: 2px solid gold; }
+       .flui { width: 50px; transition: 0.3s; }
+       .flui:hover { transform: scale(1.2); }
+
+
+    </style>
+</head>
+
+<body>
+    <section class="s1">
+        <div class="slider">
+            <div class="sliderG">
+                <input type="radio" name="bola" id="bola1" checked>
+                <input type="radio" name="bola" id="bola2">
+                <input type="radio" name="bola" id="bola3">
+
+                <div class="slideunico primeiro">
+                    <img src="5.png" alt="Lego 1">
+                </div>
+                <div class="slideunico">
+                    <img src="4.png" alt="Lego 2">
+                </div>
+                <div class="slideunico">
+                    <img src="3.png" alt="Lego 3">
+                </div>
+            </div>
+        </div>
+
+        <div class="quadradinhos">
+
+            <label for="bola1"><img src="alter.png" alt="btn1"></label>
+            <label for="bola2"><img src="alter.png" alt="btn2"></label>
+            <label for="bola3"><img src="alter.png" alt="btn3"></label>
+
+        </div>
+    </section>
+
+    <section class="container-cards">
+        <div class="card-item">
+            <div class="card-icon">
+                <img src="vip2.png" alt="VIP">
+            </div>
+            <span>Acesso VIP Gold</span>
+        </div>
+
+        <div class="card-item">
+            <div class="card-icon">
+                <img src="prime2.png" alt="Exclusiva">
+            </div>
+            <span>Exclusiva Diamond</span>
+        </div>
+
+        <div class="card-item">
+            <div class="card-icon">
+                <img src="boa.png" alt="Prime">
+            </div>
+            <span>Executive Prime</span>
+        </div>
+    </section>
+
+    <section class="depoimentos">
+        <h2>O que dizem nossos clientes</h2>
+
+        <div class="depoimento-item">
+            "Incrivel como essa companhia aerea e tão boa e confortavel com atendimento excelente!"
+            <b>- Ricardo Santos</b>
+        </div>
+
+        <div class="depoimento-item">
+            "Interface linda e muito fácil de usar no celular. O suporte VIP realmente faz a diferença."
+            <b>- Mariana Lima</b>
+        </div>
+
+        <div class="depoimento-item">
+            "Os preços das viangens e o atendimento PRIME são imbatíveis. Recomendo a todos que amam viajar com conforto!"
+            <b>- João Oliveira</b>
+        </div>
+    </section>
+
+
+   <section class="home">
+         <a href="index.html"> <img class="flui" src="imagem/casa.png" alt="Início"> </a>
+         <a href="index2.html"> <img class="flui" src="imagem/viagem.png" alt="Voos" style="filter: brightness(1.5); border-bottom: 2px solid gold;"> </a>
+         <a href="index3.html"> <img class="flui" src="imagem/mundo.png" alt="Mundo"> </a>
+         <a href="index4.html"> <img class="flui" src="imagem/ajuda.png" alt="Ajuda"> </a>
+         <a href="index5.html"> <img class="flui" src="imagem/livro.png" alt="Saúde"> </a>
+    </section>
+
+    <footer>
+        <p><b>Endereço:</b> Av. Paulista, 1000 - São Paulo/SP</p>
+        <p><b>Telefone:</b> (11) 98765-4321</p>
+        <p><b>E-mail:</b> contato@alexandrevip.com.br</p>
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <p>© 2026 Alexandre VIP - Todos os direitos reservados</p>
+    </footer>
+
+
+    <script src="one.js"></script>
+</body>
+
+</html>

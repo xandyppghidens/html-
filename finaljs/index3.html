@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamento Staff - Alexandre Air</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/padrao.css">
+    <style>
+        body { 
+            background-color: rgb(165, 89, 18); 
+            color: white; 
+            font-family: sans-serif; 
+            margin: 0;
+        }
+
+        .titulo-secao { 
+            text-align: center; 
+            padding: 25px; 
+            color: rgb(12, 12, 12); 
+            font-size: 1.4rem; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+        }
+
+        /* --- ESTILO DROPDOWN AEROPORTO --- */
+        .treino-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        details {
+            background: #000;
+            border: 2px solid gold;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        summary {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: gold;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        summary::after {
+            content: '✈️'; 
+            transition: 0.4s;
+            filter: grayscale(1) brightness(2);
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg) translate(5px, -5px); /* Efeito de decolagem */
+        }
+
+        .exercicios-lista {
+            padding: 0 20px 20px 20px;
+            background: #111;
+        }
+
+        .exercicio-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        /* Código do Procedimento em Verde Radar */
+        .exercicio-item span {
+            color: #00ff00; 
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            background: rgba(0, 255, 0, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        /* --- MENU INFERIOR --- */
+        .home { 
+            width: 100%; 
+            background: #000; 
+            height: 100px; 
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center; 
+            border-top: 2px solid gold;
+        }
+        .flui { width: 50px; transition: 0.3s; }
+        
+        footer { background-color: #000; padding: 30px 20px; text-align: justify; border-top: 3px solid gold; height: 400px; padding-top: 40px;}
+        footer p { margin: 10px 0; color: #ccc; font-size: 0.9rem; }
+        footer b { color: gold; }
+    </style>
+</head>
+<body>
+
+    <div class="titulo-secao">Manuais de Operação Aeroportuária</div>
+
+    <section class="treino-container">
+        
+        <details>
+            <summary>Protocolos de Pista (Runway)</summary>
+            <div class="exercicios-lista">
+                <div class="exercicio-item">Sinalização de Pátio <span>SIG-01</span></div>
+                <div class="exercicio-item">Check-list de Turbinas <span>ENG-Check</span></div>
+                <div class="exercicio-item">Abastecimento Seguro <span>FUEL-77</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Serviço de Bordo (Cabin Crew)</summary>
+            <div class="exercicios-lista">
+                <div class="exercicio-item">Demonstração de Segurança <span>SAFE-02</span></div>
+                <div class="exercicio-item">Atendimento VIP Gold <span>VIP-SERV</span></div>
+                <div class="exercicio-item">Primeiros Socorros <span>MED-AIR</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Torre de Comando (ATC)</summary>
+            <div class="exercicios-lista">
+                <div class="exercicio-item">Autorização de Decolagem <span>TWR-GO</span></div>
+                <div class="exercicio-item">Monitoramento de Radar <span>RAD-SCAN</span></div>
+                <div class="exercicio-item">Comunicação via Rádio <span>FREQ-12</span></div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Check-in & Embarque</summary>
+            <div class="exercicios-lista">
+                <div class="exercicio-item">Conferência de Passaporte <span>ID-CHECK</span></div>
+                <div class="exercicio-item">Despacho de Bagagem <span>BAGG-IN</span></div>
+                <div class="exercicio-item">Prioridade de Embarque <span>FAST-LANE</span></div>
+            </div>
+        </details>
+
+    </section>
+
+    <section class="home">
+         <a href="index.html"> <img class="flui" src="imagem/casa.png" alt="Início"> </a>
+         <a href="index2.html"> <img class="flui" src="imagem/viagem.png" alt="Voos"> </a>
+         <a href="index3.html"> <img class="flui" src="imagem/mundo.png" alt="Operações" style="filter: brightness(1.5); border-bottom: 2px solid gold;"> </a>
+         <a href="index4.html"> <img class="flui" src="imagem/ajuda.png" alt="Ajuda"> </a>
+         <a href="index5.html"> <img class="flui" src="imagem/livro.png" alt="Saúde"> </a>
+    </section>
+
+    <footer>
+        <p><b>Endereço:</b> Av. Paulista, 1000 - São Paulo/SP</p>
+        <p><b>Telefone:</b> (11) 98765-4321</p>
+        <p><b>E-mail:</b> contato@alexandrevip.com.br</p>
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <p>© 2026 Alexandre VIP - Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda e Suporte - Alexandre Air</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/padrao.css">
+    <style>
+        body { 
+            background-color: rgb(165, 89, 18); 
+            color: white; 
+            font-family: sans-serif; 
+            margin: 0;
+        }
+
+        .titulo-secao { 
+            text-align: center; 
+            padding: 25px; 
+            color: rgb(12, 12, 12); 
+            font-size: 1.4rem; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+        }
+
+        /* --- SEÇÃO DE AJUDA --- */
+        .container-ajuda {
+            padding: 20px;
+        }
+
+        .card-ajuda {
+            background: #000;
+            border: 2px solid gold;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-ajuda h2 {
+            color: gold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lista-instrucoes {
+            list-style: none;
+        }
+
+        .lista-instrucoes li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .lista-instrucoes li::before {
+            content: '✓';
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        /* --- BOTÃO DE CONTATO --- */
+        .btn-suporte {
+            display: block;
+            width: 100%;
+            background: rgb(34, 34, 34);
+            color: black;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-suporte:hover {
+            filter: brightness(1.2);
+            transform: scale(1.02);
+        }
+
+        /* --- MENU INFERIOR --- */
+        .home { 
+            width: 100%; 
+            background: #000; 
+            height: 100px; 
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center; 
+            border-top: 2px solid gold;
+        }
+        .flui { width: 50px; transition: 0.3s; }
+        
+        /* Rodapé */
+        footer { background-color: #000; padding: 30px 20px; text-align: justify; border-top: 3px solid gold; padding-top: 40px;}
+        footer p { margin: 10px 0; color: #ccc; font-size: 0.9rem; }
+        footer b { color: gold; }
+    </style>
+</head>
+<body>
+
+    <div class="titulo-secao">Central de Ajuda VIP</div>
+
+    <section class="container-ajuda">
+        
+        <div class="card-ajuda">
+            <h2>🧳 Itens de Bordo</h2>
+            <ul class="lista-instrucoes">
+                <li><b>Acessórios de Proteção:</b> O uso de máscaras e bandanas é opcional, mas recomendado em voos longos.</li>
+                <li><b>Conforto:</b> Talas de pescoço e almofadas ergonômicas são permitidas em todas as classes.</li>
+                <li><b>Segurança:</b> Luvas térmicas para destinos de neve devem ser despachadas ou portadas na mala de mão.</li>
+            </ul>
+        </div>
+
+        <div class="card-ajuda">
+            <h2>🎟️ Como Comprar</h2>
+            <ul class="lista-instrucoes">
+                <li>Selecione o destino desejado na aba "Viagens".</li>
+                <li>Escolha o horário disponível no painel de decolagens.</li>
+                <li>Realize o pagamento via PIX ou Cartão VIP Gold.</li>
+                <li>Receba seu QR Code de embarque via E-mail.</li>
+            </ul>
+        </div>
+
+        <div class="card-ajuda">
+            <h2>✈️ No Aeroporto</h2>
+            <ul class="lista-instrucoes">
+                <li>Chegue com 2 horas de antecedência para voos nacionais.</li>
+                <li>Tenha em mãos o documento de identidade original.</li>
+                <li>Acesso à Sala VIP liberado para clientes Diamond.</li>
+            </ul>
+            <a href="#" class="btn-suporte">Falar com Comissário Online</a>
+        </div>
+
+    </section>
+
+    <section class="home">
+         <a href="index.html"> <img class="flui" src="imagem/casa.png" alt="Início"> </a>
+         <a href="index2.html"> <img class="flui" src="imagem/viagem.png" alt="Voos"> </a>
+         <a href="index3.html"> <img class="flui" src="imagem/mundo.png" alt="Operações"> </a>
+         <a href="index4.html"> <img class="flui" src="imagem/ajuda.png" alt="Ajuda" style="filter: brightness(1.5); border-bottom: 2px solid gold;"> </a>
+         <a href="index5.html"> <img class="flui" src="imagem/livro.png" alt="Saúde"> </a>
+    </section>
+
+    <footer>
+        <p><b>Endereço:</b> Av. Paulista, 1000 - São Paulo/SP</p>
+        <p><b>Telefone:</b> (11) 98765-4321</p>
+        <p><b>E-mail:</b> contato@alexandrevip.com.br</p>
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <p>© 2026 Alexandre VIP - Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
