@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvimento de Sistemas - Curso Profissional</title>
+    <style>
+        :root {
+            --primary-dark: #000000;
+            --deep-blue: #002b5b;
+            --accent-yellow: #d4e157;
+            --text-blue: #00b0ff;
+            --white: #ffffff;
+            --bg-gray: #121212;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        header,
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Header e Grid Inicial */
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .grid-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card-blue {
+            background-color: var(--deep-blue);
+            padding: 40px;
+            border-radius: 15px;
+            border-bottom: 4px solid var(--accent-yellow);
+            transition: transform 0.3s;
+        }
+
+        .card-blue:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Seção de Linguagens */
+        .tech-section {
+            background: #1a1a1a;
+            padding: 80px 20px;
+            padding-left: 200px;
+            border: solid 4px var(--accent-yellow);
+        }
+
+        .tech-section h2 {
+            color: var(--accent-white);
+            margin-right: 170px;
+        }
+
+        .languages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .tech-list li {
+            margin-bottom: 10px;
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+
+        .tech-list li::before {
+            content: "→ ";
+        }
+
+        /* Ajuste das Imagens das Linguagens */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .image-placeholder {
+            background: #2a2a2a;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid #333;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* Garante que a logo não distorça */
+        }
+
+        /* Depoimentos */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px 30px;
+            margin-top: 80px;
+        }
+
+        .student-card {
+            background: #000000;
+            color: rgb(10, 212, 10);
+            padding: 40px 30px 30px;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .student-photo {
+            width: 90px;
+            height: 90px;
+            background: #eee;
+            border-radius: 50%;
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid rgb(249, 246, 246);
+            overflow: hidden;
+        }
+
+        .student-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .student-card p {
+            font-style: italic;
+            color: var(--accent-yellow);
+            margin-top: 10px;
+        }
+
+        .student-card h4 {
+            color: var(--green-yellow);
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        /* BOTÃO FINAL PREMIUM */
+
+        .btn-main {
+            position: relative;
+            display: inline-block;
+            padding: 22px 70px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: #000;
+            background: linear-gradient(45deg, #d4e157, #fdd835);
+            border-radius: 60px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.4);
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* Efeito de brilho passando */
+        .btn-main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.6),
+                    transparent);
+            transition: 0.6s;
+        }
+
+        .btn-main:hover::before {
+            left: 100%;
+        }
+
+        /* Hover */
+        .btn-main:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 225, 87, 0.7);
+        }
+
+        /* Clique */
+        .btn-main:active {
+            transform: scale(0.97);
+        }
+
+        /* Animação suave de pulsação */
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(212, 225, 87, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(212, 225, 87, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(212, 225, 87, 0.4);
+            }
+        }
+
+
+        .d1 img {
+            width: 20%;
+            height: 300px;
+            margin-top: 40px;
+            margin-left: 50px;
+            border-radius: 20px;
+            border: solid 3px rgb(246, 246, 245);
+            transition: 0.3s;
+
+
+        }
+
+
+        .d1 img:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+
+        .d1{
+            margin-right: 30px;
+        }
+
+        .s4 {
+            width: 100%;
+            background-color: #000;
+            margin-top: 50px;
+            border-radius: 30px;
+            border: solid 3px var(--accent-yellow);
+
+        }
+
+        
+
+
+
+        /* Quadro Mercado de Programação */
+        .market-box {
+            background: linear-gradient(135deg, #002b5b, #001a33);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 80px auto;
+            max-width: 1000px;
+            border: 3px solid var(--accent-yellow);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            text-align: left;
+        }
+
+        .market-box h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .market-card {
+            background: #0d1b2a;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent-yellow);
+            transition: 0.3s;
+        }
+
+        .market-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .market-card h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 15px;
+        }
+
+        .market-card p {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .snew{
+              border: solid 4px var(--accent-yellow);
+              border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+   <header>
+        <h1>Carreira em Tecnologia</h1>
+        <p class="intro-text">ESSE CURSO É FOCADO EM DESENVOLVIMENTO DE SISTEMAS FEITO ESPECIALMENTE PRA VOCÊ QUE DESEJA
+            INGRESSAR NA ÁREA.</p>
+
+        <div class="grid-header">
+            <div class="card-blue">
+                <h3>Front-End</h3>
+                <p>Criação de interfaces modernas e responsivas.</p>
+            </div>
+            <div class="card-blue">
+                <h3>Back-End</h3>
+                <p>Processamento de dados e segurança do sistema.</p>
+            </div>
+            <div class="card-blue">
+                <h3>Full-Stack</h3>
+                <p>Domínio completo das camadas do software.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="tech-section">
+        <h2>Linguagens a serem aprendidas</h2>
+        <div class="languages-container">
+            <!-- Front-End -->
+            <div>
+                <h4>FRONT-END</h4>
+                <ul class="tech-list">
+                    <li>HTML 5 / CSS 3</li>
+                    <li>JAVASCRIPT</li>
+                    <li>REACT / VUE</li>
+                </ul>
+                <div class="image-grid">
+
+                </div>
+            </div>
+
+            <!-- SQL & Dados -->
+            <div>
+                <h4>SQL & DADOS</h4>
+                <ul class="tech-list">
+                    <li>SQL SERVER</li>
+                    <li>MODELAGEM</li>
+                    <li>NOSQL</li>
+                </ul>
+                <div class="image-grid">
+
+                </div>
+            </div>
+
+            <!-- Back-End -->
+            <div>
+                <h4>BACK-END</h4>
+                <ul class="tech-list">
+                    <li>JAVA / C#</li>
+                    <li>PYTHON</li>
+                    <li>PHP</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section class="s4">
+        <div class="d1">
+            <img src="python.png" alt="Python">
+            <img src="java.png" alt="Java">
+            <img src="php.png" alt="PHP">
+        </div>
+
+        <div class="d1">
+            <img src="sql.png" alt="SQL">
+            <img src="css.png" alt="CSS">
+            <img src="js.png" alt="JavaScript">
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+    <section class="tech-section">
+        <h2>Habilidades a serem desenvolvidas </h2>
+        <div class="languages-container">
+            <!-- skils -->
+            <div>
+                <h4>Habilidades</h4>
+                <ul class="tech-list">
+                    <li>Trabalho em equipe</li>
+                    <li>Comunicação eficaz</li>
+                    <li>Resolução de problemas</li>
+                </ul>
+                <div class="image-grid">
+
+                </div>
+            </div>
+
+
+            <!-- skils -->
+            <div>
+                <h4>Detalhes</h4>
+                <ul class="tech-list">
+                    <li>1600 HORAS (5 hrs por dia)</li>
+                    <li>Comprovante de endereço</li>
+                    <li>Ensino médio completo</li>
+                </ul>
+                <div class="image-grid">
+
+                </div>
+            </div>
+
+
+
+            <!-- skils -->
+            <div>
+                <h4>Proeficiencias</h4>
+                <ul class="tech-list">
+                    <li>Tecnologia da informação</li>
+                    <li>Programação</li>
+                    <li>Desenvolvimento de sistemas</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="market-box">
+            <h2>Por que estudar Programação?</h2>
+
+            <div class="market-grid">
+
+                <div class="market-card">
+                    <h3>Alta Demanda Mundial</h3>
+                    <p>
+                        Empresas de todos os setores precisam de sistemas, sites, aplicativos e automações.
+                        A transformação digital aumentou drasticamente a necessidade de desenvolvedores.
+                    </p>
+                </div>
+
+                <div class="market-card">
+                    <h3>Salários Competitivos</h3>
+                    <p>
+                        A escassez de profissionais qualificados faz com que os salários na área de
+                        tecnologia estejam entre os mais altos do mercado atual.
+                    </p>
+                </div>
+
+                <div class="market-card">
+                    <h3>Profissão do Futuro</h3>
+                    <p>
+                        Inteligência Artificial, automação, segurança digital e sistemas inteligentes
+                        dependem diretamente de programadores capacitados.
+                    </p>
+                </div>
+
+                <div class="market-card">
+                    <h3>Trabalho Remoto e Internacional</h3>
+                    <p>
+                        Programadores podem trabalhar para empresas do Brasil ou do exterior,
+                        aumentando oportunidades e ganhos em moeda forte.
+                    </p>
+                </div>
+
+                <div class="market-card">
+                    <h3>Escassez de Profissionais</h3>
+                    <p>
+                        O mercado cresce mais rápido do que a formação de novos desenvolvedores.
+                        Por isso, a procura por profissionais qualificados continua aumentando.
+                    </p>
+                </div>
+
+                <div class="market-card">
+                    <h3>Capacidade de Criar Soluções</h3>
+                    <p>
+                        Aprender programação permite transformar ideias em sistemas reais,
+                        resolver problemas e construir produtos digitais inovadores.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="snew">
+        <h2>Depoimentos Inspiradores</h2>
+        <div class="testimonials-grid">
+            <div class="student-card">
+                <div class="student-photo">
+                    <img src="obito.png" alt="Alexandre Vilela">
+                </div>
+                <br>
+                <h4>Alexandre Vilela</h4>
+                <p>"O curso mudou minha visão sobre o mercado. Hoje trabalho como desenvolvedor Júnior em uma
+                    multinacional!"</p>
+            </div>
+
+            <div class="student-card">
+                <div class="student-photo">
+                    <img src="rin.png" alt="Mariana Silva">
+                </div>
+                <br>
+                <h4>Mariana Silva</h4>
+                <p>"A didática é incrível. Saí do zero e em 6 meses já estava criando meus próprios sistemas completos."
+                </p>
+            </div>
+
+            <div class="student-card">
+                <div class="student-photo">
+                    <img src="kakashi.png" alt="Ricardo Souza">
+                </div>
+                <br>
+                <h4>Ricardo Souza</h4>
+                <p>"O suporte dos professores faz toda a diferença quando surgem as dificuldades lógicas."</p>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <a href="info.html" class="btn-main">GARANTIR MINHA VAGA</a>
+    </section>
+
+</body>
+
+</html>

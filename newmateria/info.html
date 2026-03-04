@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Curso</title>
+
+    <style>
+        :root {
+            --deep-blue: #002b5b;
+            --accent-yellow: #d4e157;
+            --bg-dark: #121212;
+            --card-dark: #1a1a1a;
+            --input-dark: #0f0f0f;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        /* SEÇÃO */
+        #inscricao {
+            background: var(--card-dark);
+            padding: 100px 20px;
+            border-top: 3px solid var(--accent-yellow);
+        }
+
+        /* CARD */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--deep-blue);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            animation: fadeUp 0.8s ease;
+        }
+
+        /* TITULO */
+        .form-container h2 {
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-container p {
+            color: #ccc;
+            margin-bottom: 35px;
+        }
+
+        /* INPUTS */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px 18px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: var(--input-dark);
+            color: var(--white);
+            font-size: 0.95rem;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 10px rgba(212, 225, 87, 0.5);
+        }
+
+        /* BOTÃO */
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #d4e157, #fdd835);
+            color: #000;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 225, 87, 0.7);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.97);
+        }
+
+
+
+        .btn-submits {
+            width: 100%;
+            padding: 18px;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #e64a08, #541b05);
+            color: #000;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.4);
+        }
+
+        .btn-submits:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 225, 87, 0.7);
+        }
+
+        .btn-submits:active {
+            transform: scale(0.97);
+        }
+
+        /* MENSAGEM */
+        #mensagem-sucesso {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(212, 225, 87, 0.1);
+            border: 1px solid var(--accent-yellow);
+            color: var(--accent-yellow);
+            text-align: center;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* ANIMAÇÕES */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 35px 25px;
+            }
+        }
+
+        a{
+           text-decoration: none;
+           color: white;
+           font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section id="inscricao">
+        <div class="form-container">
+            <h2>Inicie sua Jornada</h2>
+            <p>Preencha os dados abaixo para garantirmos sua vaga na próxima turma.</p>
+
+            <form id="form-inscricao" novalidate>
+                <div class="form-group">
+                    <input type="text" id="nome" placeholder="Nome Completo" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Seu melhor E-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="whatsapp" placeholder="WhatsApp (DDD + Número)" required>
+                </div>
+
+                <div class="form-group">
+                    <select id="experiencia" required>
+                        <option value="" disabled selected>Nível de Experiência</option>
+                        <option value="zero">Iniciante (Zero experiência)</option>
+                        <option value="basico">Conheço o básico</option>
+                        <option value="avancado">Já estudo programação</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    ENVIAR MINHA INSCRIÇÃO
+                </button>
+                <br>
+                <br>
+
+               <a href="index.html" class="submits"> 
+                   Voltar para o Início
+
+                </a>
+                
+
+                <div id="mensagem-sucesso">
+                    ✓ Inscrição enviada com sucesso! Entraremos em contato.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="one.js"></script>
+
+</body>
+
+</html>
