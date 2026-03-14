@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cemig - Energia para Minas</title>
+    <link rel="stylesheet" href="reset.css">
+
+    <style>
+        :root {
+            --green-bg: #4CAF50;
+            --dark-bg: #000000;
+            --text-white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--green-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo corrigida */
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Blocos Pretos */
+        .dark-box {
+            background-color: var(--dark-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-box h2 {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .dark-box h3 {
+            margin-bottom: 20px;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        /* Grid de Cards (Cidades) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--dark-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* Texto das cidades */
+        .card p {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Motivos Grid */
+        .motivos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            color: #aaa;
+        }
+
+        /* Depoimentos */
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Parcerias */
+        .parcerias-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .parceiro-logo {
+            background: white;
+            color: #003399;
+            padding: 20px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsividade JS Helper */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            /* Menu hamburguer pode ser implementado aqui */
+            .menu-toggle {
+                display: block;
+            }
+
+            .motivos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .parcerias-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        a{
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+         
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo"> <img src="imagem/logo.png" alt="Cemig"> </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#" class="btn-join">Junte-se a nós</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Seção de Cidades -->
+        <section class="grid-section">
+            <div class="card-grid">
+                <!-- Repetir 6 vezes conforme a imagem -->
+                <div class="card">
+                    <img src="imagem/1.png" alt="Cidade">
+                    <p>
+
+                        Araxá
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="imagem/2.png" alt="Cidade">
+                    <p>
+                        Belo Horizonte
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="imagem/3.png" alt="Cidade">
+                    <p>
+                        Uberlândia
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="imagem/4.png" alt="Cidade">
+                    <p>
+                        Uberaba
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="imagem/5.png" alt="Cidade">
+                    <p>
+
+                        Divinópolis
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="imagem/6.png" alt="Cidade">
+                    <p>
+                        Ipatinga
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivos -->
+        <section class="dark-box">
+            <h2>Motivos para usar a Cemig</h2>
+            <h3>Qualidade</h3>
+            <div class="motivos-grid">
+                <span>Disponibilidade</span>
+                <span>Suporte ao público</span>
+                <span>Profissionais capacitados</span>
+                <span>Reservatórios bem cuidados</span>
+            </div>
+            <p class="tagline">A cemig é uma empresa que cuida de várias cidades oferecendo ótimos profissionais</p>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="dark-box">
+            <h2>O que nossos clientes dizem?</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento">
+                    <div class="avatar"> <img src="imagem/rin.png" alt=""></div>
+                    <br>
+                    <strong>Rin</strong>
+                    <p>"Muito bom, o atendimento é excelente"</p>
+                </div>
+                <div class="depoimento">
+                    <div class="avatar"><img src="imagem/obito.png" alt=""> </div>
+                    <br>
+                    <strong>Obito</strong>
+                    <p>"Muito bom, o atendimento é excelente"</p>
+                </div>
+                <div class="depoimento">
+                    <div class="avatar"><img src="imagem/kakashi.png" alt=""> </div>
+                    <br>
+                    <strong>Kakashi</strong>
+
+                    <p>"Muito bom, o atendimento é excelente"</p>
+                </div>
+                <div class="depoimento">
+                    <div class="avatar"><img src="imagem/minato.png" alt=""> </div>
+                    <br>
+                    <strong>Minato</strong>
+                    <p>"Muito bom, o atendimento é excelente"</p>
+                </div>
+            </div>
+            <p class="footer-msg">Oferecemos o melhor suporte desejado a todos os nossos clientes</p>
+        </section>
+
+        <!-- Parcerias -->
+        <section class="dark-box">
+            <h2>Parcerias</h2>
+            <div class="parcerias-grid">
+                <div class="parceiro-logo">CBMM</div>
+                <div class="parceiro-logo">COPASA</div>
+                <div class="parceiro-logo">SABESP</div>
+                <div class="parceiro-logo">ZEMA</div>
+                <div class="parceiro-logo">BARBOSÃO</div>
+                <div class="parceiro-logo">ABC</div>
+            </div>
+        </section>
+    </main>
+
+   <a href="https://www.instagram.com/xandy_vilela/">  <footer>
+        direitos reservados para Alexandre Vilela de Oliveira Junior -2026
+   </a> </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
