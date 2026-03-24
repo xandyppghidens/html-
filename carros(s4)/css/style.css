@@ -1,0 +1,143 @@
+/*SESSÃO 1 */
+.S1AsLendas {
+  background: #1f2024;
+  color: white;
+}
+
+/*SESSÃO 1 - Ferrari*/
+
+.S1AsLendasDivFerrariDiv1-1Img{
+  width: 200px;
+}
+
+.S1AsLendasDivFerrariDiv1-2H2{
+padding-top: 15%;
+font-family: 'Inter', sans-serif;
+font-weight: 700; /* Para esse peso negrito da imagem */
+font-size: 60px;
+}
+
+
+.S1AsLendasDivFerrariDiv2Img{
+    width: 500px;
+}
+
+.S1AsLendasDivFerrariDiv3-1H1{
+font-family: 'Inter', sans-serif;
+font-weight: 700; /* Para esse peso negrito da imagem */
+font-size: 60px;
+}
+
+.S1AsLendasDivFerrariDiv3-1P{
+text-align: justify;
+padding-top: 5%;
+font-family: 'Inter', sans-serif;
+font-weight: 400; /* Para esse peso negrito da imagem */
+font-size: 20px;
+}
+
+
+.S1AsLendasDivFerrariDiv3-2Img {
+  padding-bottom: 22%;
+}
+/*SESSÃO 1 - Ferrari*/
+
+/* Estilos da secao de comparacao entre marcas. */
+body {
+  background: #1f2024;
+  color: white;
+  height: fit-content;
+}
+
+/* Wrapper principal: organiza os blocos em coluna. */
+.diferencial {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  padding: 80px;
+
+  /* Cada container representa uma marca. */
+  .container_diferencial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    & h1 {
+      font-size: 5rem;
+      font-weight: bold;
+    }
+
+    /* Linha de conteudo com texto + imagem. */
+    .wrapper_diferencial {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      padding-top: 10dvh;
+
+      & p {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+      }
+
+      & img {
+        width: 35%;
+      }
+
+      /* Variante para alternar layout (imagem antes do texto). */
+      &.invert {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+.s4 {
+
+  & h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    & p {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        text-align: center;
+        margin-top: 40px;
+      }
+}
+.s5{
+    padding-top: 5%;
+    padding-left: 100px;
+    height: 1200px;
+}
+.s5dv h1{
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.s5dv2{
+  padding-left: px;
+}
+.s5dv p{
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    margin-top: 40px;
+}
+.s5dv2 h1{
+    padding-top: 4.2%;
+    font-size: 4rem;
+    font-weight: bold;
+
+}
+.s5dv2 p{
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 40px;
+}
+.s5f1{
+  margin-left: 50%;
+}
